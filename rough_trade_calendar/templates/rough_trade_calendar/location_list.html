@@ -1,0 +1,10 @@
+<h2>Rough Trade Locations</h2>
+<ul>
+    {% for location in locations %}
+        <li>
+            <a href="{% url "location_events" location=location.slug %}">{{ location.name }} ({{ location.events.all.count }}) event{{ location.events.all.count|pluralize }}</a>
+            (<a href="{% url "location_events_calendar" location=location.slug %}">subscribe to calendar</a>)
+            
+        </li>
+    {% endfor %}
+</ul>
