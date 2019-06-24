@@ -7,7 +7,7 @@ from rough_trade_calendar import models
 
 @admin.register(models.Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ("name", "start_at", "location")
+    list_display = ("name", "start_at", "location", "created", "modified")
     list_display_links = list_display
     ordering = ("-start_at",)
 
