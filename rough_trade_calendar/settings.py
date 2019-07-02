@@ -1,31 +1,19 @@
-"""
-Django settings.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/stable/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/stable/ref/settings/
-"""
+"""Django settings."""
 
 import os
+import re
 
+import dj_database_url
 import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+SECRET_KEY = os.environ.get("SECRET_KEY", "placeholder")
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
+DEBUG = os.environ.get("DEBUG", False)
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "c*y((5-6ym_9a40e_n5&i)8joa%7k3ir(gsx0(=s&k*a4ilo5_"
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*.herokuapp.com", "localhost"]
 
 
 # Application definition
@@ -116,5 +104,15 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 
+# Ignore 404s
+# https://docs.djangoproject.com/en/2.2/ref/settings/#std:setting-IGNORABLE_404_URLS
+
+IGNORABLE_404_URLS = [re.compile(r"^/phpmyadmin/"), re.compile(r"\.php$")]
+
+
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
+
+
+if os.environ.get("DATABASE_NO_SSL_REQUIRE"):
+    DATABASES["default"] = dj_database_url.config(ssl_require=False)
