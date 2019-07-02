@@ -26,6 +26,3 @@ django-timezone-field = "*"
 django-ical = "*"
 gunicorn = "*"
 django-heroku = "*"
-
-[requires]
-python_version = "3.7"
