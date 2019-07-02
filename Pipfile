@@ -6,6 +6,15 @@ verify_ssl = true
 [dev-packages]
 black = "==19.3b0"
 ipython = "*"
+isort = "*"
+pytest = "*"
+icalendar = "*"
+pytest-django = "*"
+model-mommy = "*"
+faker = "*"
+pylint = "*"
+pylint-django = "*"
+pyenchant = "*"
 
 [packages]
 django = "*"

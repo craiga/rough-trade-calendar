@@ -1,5 +1,7 @@
+"""App configuration."""
+
 from django.apps import AppConfig
 
 
-class VeryuniquestringConfig(AppConfig):
-    name = "veryuniquestring"
+class RoughTradeCalendarConfig(AppConfig):
+    name = "rough_trade_calendar"

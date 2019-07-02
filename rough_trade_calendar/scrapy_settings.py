@@ -1,7 +1,8 @@
+"""Scrapy settings."""
+
 import os
 
 from django.core.wsgi import get_wsgi_application
-
 
 # Configure and start required Django things.
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "rough_trade_calendar.settings")

@@ -1,5 +1,6 @@
-import re
-from datetime import datetime, timedelta
+"""Scrapy spiders."""
+
+from datetime import datetime
 from urllib.parse import urljoin
 
 import scrapy
@@ -15,6 +16,8 @@ class Event(scrapy_djangoitem.DjangoItem):
 
 
 class EventsSpider(scrapy.Spider):
+    """Events spider."""
+
     name = "rough_trade_events"
 
     def start_requests(self):
@@ -26,16 +29,14 @@ class EventsSpider(scrapy.Spider):
                 yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
-        # TODO: Move into model manager?
-        url = re.sub(r"/\d{4}/\d{1,2}$", "", response.url)
-        loc = models.Location.objects.get(events_url=url)
+        loc = models.Location.objects.get_by_events_url(response.url)
 
         for event in response.xpath("//div[contains(@class, 'event')]"):
             start_at = parse(event.xpath(".//*[@class='text-sm']/text()").get())
             start_at = loc.timezone.localize(start_at)
             event = Event(
                 name=event.xpath(".//h2/a/text()").get(),
-                description=event.get(),
+                description=event.xpath(".//div[contains(@class, 'f-n')]/text()").get(),
                 url=urljoin(response.url, event.xpath(".//a/@href").get()),
                 image_url=urljoin(response.url, event.xpath(".//img/@src").get()),
                 start_at=start_at,
