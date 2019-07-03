@@ -1,6 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Events at {{ location.name }}{% endblock %}
+
+{% block content %}
+
 {% load tz %}
 
-<h2>Events at {{ location.name }}</h2>
+<h1>Events at {{ location.name }}</h1>
 
 {% timezone location.timezone %}
 <ul>
@@ -11,3 +17,5 @@
 {% endtimezone %}
 
 <p><a href="{% url "location_events_calendar" location=location.slug %}">Subscribe to Calendar</a></p>
+
+{% endblock %}
