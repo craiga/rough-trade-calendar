@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "502db06b3901240612e761a93f5ade64b6b4cb77da34f7d007b6762fff332d23"
+            "sha256": "fbf581948a142928331ee40002c844afc884a6852a2ce8f2a880db50c710096e"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -309,6 +309,13 @@
             ],
             "version": "==1.5.0"
         },
+        "raven": {
+            "hashes": [
+                "sha256:3fa6de6efa2493a7c827472e984ce9b020797d0da16f1db67197bcc23c8fae54",
+                "sha256:44a13f87670836e153951af9a3c80405d36b43097db869a36e92809673692ce4"
+            ],
+            "version": "==6.10.0"
+        },
         "scrapy": {
             "hashes": [
                 "sha256:4ec03552c9aed1e82a376488150e904e0213bdee3ca140225105e9b03d0de204",
@@ -324,6 +331,13 @@
             ],
             "index": "pypi",
             "version": "==1.1.1"
+        },
+        "scrapy-sentry": {
+            "hashes": [
+                "sha256:4c78e0fb5a5940639f11ae2a1fb28d4ea1a41180d88289efc6d8e39e1e14227f"
+            ],
+            "index": "pypi",
+            "version": "==0.9.0"
         },
         "sentry-sdk": {
             "hashes": [
@@ -514,11 +528,11 @@
         },
         "ipython": {
             "hashes": [
-                "sha256:0806894ae78ddb94b530514acc9ab03a928b79374d8630470b439b58383dd7ee",
-                "sha256:263376e672c7f104fb971c9e1f372441bb34d66dfb7323062f62aa21fa46a377"
+                "sha256:11067ab11d98b1e6c7f0993506f7a5f8a91af420f7e82be6575fcb7a6ca372a0",
+                "sha256:60bc55c2c1d287161191cc2469e73c116d9b634cff25fe214a43cba7cec94c79"
             ],
             "index": "pypi",
-            "version": "==7.6.0"
+            "version": "==7.6.1"
         },
         "ipython-genutils": {
             "hashes": [
