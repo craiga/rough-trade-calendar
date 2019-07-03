@@ -1,4 +1,10 @@
-<h2>Rough Trade Locations</h2>
+{% extends 'base.html' %}
+
+{% block title %}Rough Trade Locations{% endblock %}
+
+{% block content %}
+
+<h1>Rough Trade Locations</h1>
 <ul>
     {% for location in locations %}
         <li>
@@ -8,3 +14,5 @@
         </li>
     {% endfor %}
 </ul>
+
+{% endblock %}
