@@ -20,14 +20,3 @@ def test_icalendar(location, event, client):
     assert event.start_at.replace(microsecond=0) == cal_event.decoded("DTSTART")
     assert event.location.name == cal_event["LOCATION"]
     assert event.url == cal_event["URL"]
-
-
-@pytest.mark.django_db
-def test_location(location, client):
-    """Test location view."""
-    response = client.get(f"/{location.slug}")
-    assert response.context["cal_url"] == f"http://testserver/{location.slug}/calendar"
-    assert (
-        response.context["webcal_url"]
-        == f"webcal://testserver/{location.slug}/calendar"
-    )
