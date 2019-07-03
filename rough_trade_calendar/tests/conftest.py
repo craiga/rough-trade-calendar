@@ -2,6 +2,10 @@
 
 # pylint: disable=redefined-outer-name
 
+from datetime import timedelta
+
+from django.utils import timezone
+
 import pytest
 from model_mommy import mommy
 
@@ -15,4 +19,6 @@ def location():
 
 @pytest.fixture
 def event(location):
-    return mommy.make(models.Event, location=location)
+    return mommy.make(
+        models.Event, location=location, start_at=timezone.now() + timedelta(days=3)
+    )
