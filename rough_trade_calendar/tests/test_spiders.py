@@ -33,6 +33,24 @@ def response(location, html):
     return TextResponse(location.events_url, body=html, encoding="utf-8")
 
 
+@pytest.fixture
+def empty_html():
+    """
+    Returns HTML retrieved with the following command:
+
+        curl https://www.roughtrade.com/events/store/rough-trade-east/2019/10 \
+            > rough_trade_calendar/tests/test_data/events_empty.html
+    """
+    this_filename = globals()["__file__"]
+    path = Path(this_filename).parents[0] / Path("test_data/events_empty.html")
+    return path.read_text()
+
+
+@pytest.fixture
+def empty_response(location, empty_html):
+    return TextResponse(location.events_url, body=empty_html, encoding="utf-8")
+
+
 @pytest.mark.django_db
 def test_spider_parse(response, location):
     """Test that spider parses HTML."""
@@ -56,3 +74,11 @@ def test_spider_parse(response, location):
     event_item = event_items[1]
     assert event_item["name"] == "No Description"
     assert event_item["description"] == ""
+
+
+@pytest.mark.django_db
+def test_spider_parse_empty(empty_response):
+    """Test that spider parses HTML."""
+    spider = spiders.EventsSpider()
+    event_items = list(spider.parse(empty_response))
+    assert event_items == []

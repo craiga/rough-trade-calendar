@@ -31,7 +31,7 @@ class EventsSpider(scrapy.Spider):
     def parse(self, response):
         loc = models.Location.objects.get_by_events_url(response.url)
 
-        for event in response.xpath("//div[contains(@class, 'event')]"):
+        for event in response.xpath("//div[contains(@class, 'event-same-height')]"):
             start_at = parse(event.xpath(".//*[@class='text-sm']/text()").get())
             start_at = loc.timezone.localize(start_at)
 
