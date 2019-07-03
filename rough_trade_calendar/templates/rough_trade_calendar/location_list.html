@@ -4,15 +4,28 @@
 
 {% block content %}
 
-<h1>Rough Trade Locations</h1>
-<ul>
+{% load rough_trade_calendar %}
+
+<div class="fixed w-100 pa2 bg-white o-90 bb">
+    <h1 class="mv2">Rough Trade Locations</h1>
+</div>
+
+
+
+
+
+<div class="flex flex-wrap pt6 pl2">
     {% for location in locations %}
-        <li>
-            <a href="{% url "location_events" location=location.slug %}">{{ location.name }} ({{ location.events.all.count }}) event{{ location.events.all.count|pluralize }}</a>
-            (<a href="{% url "location_events_calendar" location=location.slug %}">subscribe to calendar</a>)
-            
-        </li>
+        <div class="w5 pr2 pb2">
+            <h2><a href="{% url "location_events" location=location.slug %}" class="link">{{ location.name }}</a></h2>
+            <p class="mt0">{{ location.events.all.count }} event{{ location.events.all.count|pluralize }}</p>
+            <p>
+                <a href="{% webcal_url location %}" class="link br3 ph3 pv2 mb2 dib white bg-green bg-animate hover-bg-black">Subscribe to Calendar</a>
+            </p>
+        </div>
     {% endfor %}
-</ul>
+</div>
+
+
 
 {% endblock %}

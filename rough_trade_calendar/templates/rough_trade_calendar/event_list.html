@@ -4,18 +4,29 @@
 
 {% block content %}
 
-{% load tz %}
+{% load tz rough_trade_calendar %}
 
-<h1>Events at {{ location.name }}</h1>
+<div class="fixed w-100 pa2 bg-white o-90 bb">
+    <h1 class="mv2">Events at {{ location.name }}</h1>
+    <p class="mv2">
+        <a href="{% webcal_url location %}" class="link br3 ph3 pv2 dib white bg-green bg-animate hover-bg-black o-100">Subscribe to Calendar</a>
+        <a href="{% url 'locations' %}" class="link br3 ph3 pv2 dib">Other Locations</a>
+    </p>
+</div>
 
 {% timezone location.timezone %}
-<ul>
-    {% for event in events %}
-        <li><a href="{{ event.url }}">{{ event.name }} ({{ event.start_at }})</a></li>
-    {% endfor %}
-</ul>
-{% endtimezone %}
 
-<p><a href="{{ webcal_url }}">Subscribe to calendar on Mac, iOS or Outlook</a> or subscribe to <span class="code">{{ cal_url }}</span> elsewhere.</p>
+<div class="flex flex-wrap pt6 pl2">
+    {% for event in events %}
+        <a class="w5 pr2 pb2 link black" href="{{ event.url }}">
+            <img src="{{ event.image_url }}">
+            <h2>{{ event.name }}</h2>
+            <p>{{ event.description }}</p>
+            <p>{{ event.start_at}} </p>
+        </a>
+    {% endfor %}
+</div>
+
+{% endtimezone %}
 
 {% endblock %}
