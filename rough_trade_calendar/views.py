@@ -3,6 +3,7 @@
 from datetime import timedelta
 
 from django.shortcuts import get_object_or_404
+from django.utils import timezone
 from django.views.generic import ListView
 
 from django_ical.views import ICalFeed
@@ -26,7 +27,9 @@ class LocationEvents(ListView):
     def get_queryset(self):
         # pylint: disable=attribute-defined-outside-init
         self.location = get_object_or_404(models.Location, slug=self.kwargs["location"])
-        return models.Event.objects.filter(location=self.location).order_by("start_at")
+        return models.Event.objects.filter(
+            location=self.location, start_at__gte=timezone.now() - timedelta(days=1)
+        ).order_by("start_at")
 
     def get_context_data(self, *args, **kwargs):  # pylint: disable=arguments-differ
         context = super().get_context_data(*args, **kwargs)
@@ -48,7 +51,9 @@ class LocationEventsCalendar(ICalFeed):
         return location.timezone
 
     def items(self, location):
-        return models.Event.objects.filter(location=location)
+        return models.Event.objects.filter(
+            location=location, start_at__gte=timezone.now() - timedelta(days=1)
+        )
 
     def item_title(self, item):
         return item.name
