@@ -39,6 +39,7 @@ def test_spider_parse(response, location):
     spider = spiders.EventsSpider()
     event_items = list(spider.parse(response))
     assert len(event_items) == 11
+
     event_item = event_items[0]
     assert event_item["name"] == "Twenty Minute Bass Solo"
     assert event_item["description"] == "The search for the elusive brown note. 💩"
@@ -51,3 +52,7 @@ def test_spider_parse(response, location):
         datetime(1978, 3, 31, 12, 34, 0)
     )
     assert event_item["location"] == location
+
+    event_item = event_items[1]
+    assert event_item["name"] == "No Description"
+    assert event_item["description"] == ""
