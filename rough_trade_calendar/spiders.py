@@ -34,12 +34,18 @@ class EventsSpider(scrapy.Spider):
         for event in response.xpath("//div[contains(@class, 'event')]"):
             start_at = parse(event.xpath(".//*[@class='text-sm']/text()").get())
             start_at = loc.timezone.localize(start_at)
+
+            description = event.xpath(".//div[contains(@class, 'f-n')]/text()").get()
+            if description is None:
+                description = ""
+
             event = Event(
                 name=event.xpath(".//h2/a/text()").get(),
-                description=event.xpath(".//div[contains(@class, 'f-n')]/text()").get(),
+                description=description,
                 url=urljoin(response.url, event.xpath(".//a/@href").get()),
                 image_url=urljoin(response.url, event.xpath(".//img/@src").get()),
                 start_at=start_at,
                 location=loc,
             )
+
             yield event
