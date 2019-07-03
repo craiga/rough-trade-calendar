@@ -1,4 +1,4 @@
-"""iCal feed test."""
+"""View tests."""
 
 import pytest
 import pytz
@@ -6,8 +6,8 @@ from icalendar import Calendar
 
 
 @pytest.mark.django_db
-def test_ical(location, event, client):
-    """Test iCal response."""
+def test_icalendar(location, event, client):
+    """Test iCalendar feed."""
     response = client.get(f"/{location.slug}/calendar")
     assert response["Content-Type"].startswith("text/calendar")
     cal = Calendar.from_ical(response.content)
@@ -20,3 +20,14 @@ def test_ical(location, event, client):
     assert event.start_at.replace(microsecond=0) == cal_event.decoded("DTSTART")
     assert event.location.name == cal_event["LOCATION"]
     assert event.url == cal_event["URL"]
+
+
+@pytest.mark.django_db
+def test_location(location, client):
+    """Test location view."""
+    response = client.get(f"/{location.slug}")
+    assert response.context["cal_url"] == f"http://testserver/{location.slug}/calendar"
+    assert (
+        response.context["webcal_url"]
+        == f"webcal://testserver/{location.slug}/calendar"
+    )

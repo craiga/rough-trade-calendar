@@ -12,6 +12,6 @@ urlpatterns = [
         views.LocationEventsCalendar(),
         name="location_events_calendar",
     ),
-    path("<location>/", views.LocationEvents.as_view(), name="location_events"),
+    path("<location>", views.LocationEvents.as_view(), name="location_events"),
     path("", views.Locations.as_view(), name="locations"),
 ]
