@@ -17,3 +17,8 @@ app = get_wsgi_application()
 SPIDER_MODULES = ["rough_trade_calendar.spiders"]
 
 ITEM_PIPELINES = {"rough_trade_calendar.pipelines.EventDjangoPipeline": 300}
+
+EXTENSIONS = {
+    # https://github.com/llonchj/scrapy-sentry
+    "scrapy_sentry.extensions.Errors": 10
+}
