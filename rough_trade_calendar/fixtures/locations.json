@@ -1,6 +1,7 @@
 [
     {
         "model": "rough_trade_calendar.location",
+        "pk": 1,
         "fields": {
             "name": "Rough Trade East",
             "slug": "east-london",
@@ -10,6 +11,7 @@
     },
     {
         "model": "rough_trade_calendar.location",
+        "pk": 2,
         "fields": {
             "name": "Rough Trade Bristol",
             "slug": "bristol",
@@ -19,6 +21,7 @@
     },
     {
         "model": "rough_trade_calendar.location",
+        "pk": 3,
         "fields": {
             "name": "Rough Trade Nottingham",
             "slug": "nottingham",
@@ -28,6 +31,7 @@
     },
     {
         "model": "rough_trade_calendar.location",
+        "pk": 4,
         "fields": {
             "name": "Rough Trade West",
             "slug": "west-london",
@@ -37,6 +41,7 @@
     },
     {
         "model": "rough_trade_calendar.location",
+        "pk": 5,
         "fields": {
             "name": "Rough Trade NYC",
             "slug": "new-york-city",
