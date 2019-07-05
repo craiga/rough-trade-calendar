@@ -98,3 +98,9 @@ class LocationEventsFeed(Feed):
 
     def item_description(self, item):
         return f"{item.description}\n{item.location} at {item.start_at}"
+
+    def item_pubdate(self, item):
+        return item.created
+
+    def item_updateddate(self, item):
+        return item.modified

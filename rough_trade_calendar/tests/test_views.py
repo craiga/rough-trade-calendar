@@ -43,6 +43,7 @@ def test_feed(location, event, client):
     assert event.description in feed_event["summary"]
     assert event.location.name in feed_event["summary"]
     assert event.url == feed_event["link"]
+    assert event.created.timetuple() == feed_event["published_parsed"]
 
 
 @pytest.mark.django_db
