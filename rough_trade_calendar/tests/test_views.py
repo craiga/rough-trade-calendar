@@ -4,6 +4,7 @@ from datetime import timedelta
 
 from django.utils import timezone
 
+import feedparser
 import pytest
 import pytz
 from icalendar import Calendar
@@ -26,6 +27,23 @@ def test_icalendar(location, event, client):
     assert event.start_at.replace(microsecond=0) == cal_event.decoded("DTSTART")
     assert event.location.name == cal_event["LOCATION"]
     assert event.url == cal_event["URL"]
+
+
+@pytest.mark.django_db
+def test_feed(location, event, client):
+    """Test iCalendar feed."""
+    response = client.get(f"/{location.slug}/feed")
+    assert response["Content-Type"].startswith("application/rss+xml")
+    feed = feedparser.parse(response.content)
+    assert location.name in feed["feed"]["title"]
+    assert feed["feed"]["link"].endswith(location.slug)
+    assert len(feed["entries"]) == 1
+    feed_event = feed["entries"][0]
+    assert event.name == feed_event["title"]
+    assert event.description in feed_event["summary"]
+    assert event.location.name in feed_event["summary"]
+    assert event.url == feed_event["link"]
+    assert event.created.timetuple() == feed_event["published_parsed"]
 
 
 @pytest.mark.django_db
