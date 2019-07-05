@@ -2,7 +2,9 @@
 
 from datetime import timedelta
 
+from django.contrib.syndication.views import Feed
 from django.shortcuts import get_object_or_404
+from django.urls import reverse
 from django.utils import timezone
 from django.views.generic import ListView
 
@@ -72,3 +74,27 @@ class LocationEventsCalendar(ICalFeed):
 
     def item_location(self, item):
         return item.location.name
+
+
+class LocationEventsFeed(Feed):
+    """Location RSS feed."""
+
+    def get_object(self, request, location):  # pylint: disable=arguments-differ
+        return models.Location.objects.get(slug=location)
+
+    def link(self, location):
+        return reverse("location_events", kwargs={"location": location.slug})
+
+    def title(self, location):
+        return location.name
+
+    def items(self, location):
+        return models.Event.objects.filter(
+            location=location, start_at__gte=timezone.now() - timedelta(days=1)
+        ).order_by("created")
+
+    def item_link(self, item):
+        return item.url
+
+    def item_description(self, item):
+        return f"{item.description}\n{item.location} at {item.start_at}"

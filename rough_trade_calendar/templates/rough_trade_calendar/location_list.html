@@ -12,10 +12,11 @@
 
 <div class="pt5 pl2">
     {% for location in locations %}
-        <h2><a href="{% url "location_events" location=location.slug %}" class="link">{{ location.name }}</a></h2>
+        <h2><a href="{% url 'location_events' location=location.slug %}" class="link">{{ location.name }}</a></h2>
         <p>
-            <a href="{% url "location_events" location=location.slug %}" class="link br3 ph3 pv2 dib white bg-blue bg-animate hover-bg-black">View Events</a>
+            <a href="{% url 'location_events' location=location.slug %}" class="link br3 ph3 pv2 dib white bg-blue bg-animate hover-bg-black">View Events</a>
             <a href="{% webcal_url location %}" class="link br3 ph3 pv2 dib white bg-green bg-animate hover-bg-black">Subscribe to Calendar</a>
+            <a href="{% url 'location_events_feed' location=location.slug %}" class="link br3 ph3 pv2 dib white bg-orange bg-animate hover-bg-black">Subscribe to Feed</a>
         </p>
     {% endfor %}
 </div>

@@ -15,6 +15,7 @@ faker = "*"
 pylint = "*"
 pylint-django = "*"
 pyenchant = "*"
+feedparser = "*"
 
 [packages]
 django = "*"

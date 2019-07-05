@@ -10,6 +10,7 @@
     <h1 class="mv2">{{ location.name }}</h1>
     <p class="mv2">
         <a href="{% webcal_url location %}" class="link br3 ph3 pv2 dib white bg-green bg-animate hover-bg-black o-100">Subscribe to Calendar</a>
+        <a href="{% url 'location_events_feed' location=location.slug %}" class="link br3 ph3 pv2 dib white bg-orange bg-animate hover-bg-black o-100">Subscribe to Feed</a>
         <a href="{% url 'locations' %}" class="link br3 ph3 pv2 dib">Other Locations</a>
     </p>
 </div>
