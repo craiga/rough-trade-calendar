@@ -17,6 +17,9 @@ jobs:
           POSTGRES_PASSWORD: security_is_important
           POSTGRES_DB: rough_trade_calendar
 
+    environment:
+      SECRET_KEY: ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789
+
     steps:
       - checkout
 
