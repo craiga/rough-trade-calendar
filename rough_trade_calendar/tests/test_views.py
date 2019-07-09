@@ -16,7 +16,7 @@ from rough_trade_calendar import models
 @pytest.mark.django_db
 def test_icalendar(location, event, client):
     """Test iCalendar feed."""
-    response = client.get(f"/{location.slug}/calendar")
+    response = client.get(f"/{location.slug}/calendar", secure=True)
     assert response["Content-Type"].startswith("text/calendar")
     cal = Calendar.from_ical(response.content)
     assert location.timezone == pytz.timezone(cal.decoded("X-WR-TIMEZONE"))
@@ -32,7 +32,7 @@ def test_icalendar(location, event, client):
 @pytest.mark.django_db
 def test_feed(location, event, client):
     """Test iCalendar feed."""
-    response = client.get(f"/{location.slug}/feed")
+    response = client.get(f"/{location.slug}/feed", secure=True)
     assert response["Content-Type"].startswith("application/rss+xml")
     feed = feedparser.parse(response.content)
     assert location.name in feed["feed"]["title"]
@@ -52,7 +52,7 @@ def test_exclude_old_events(location, client):
     event = mommy.make(
         models.Event, location=location, start_at=timezone.now() - timedelta(days=7)
     )
-    response = client.get(f"/{location.slug}")
+    response = client.get(f"/{location.slug}", secure=True)
     assert event not in list(response.context["events"])
 
 
@@ -62,5 +62,5 @@ def test_include_yesterdays_events(location, client):
     event = mommy.make(
         models.Event, location=location, start_at=timezone.now() - timedelta(hours=23)
     )
-    response = client.get(f"/{location.slug}")
+    response = client.get(f"/{location.slug}", secure=True)
     assert event in list(response.context["events"])
