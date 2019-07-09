@@ -6,7 +6,7 @@ from django.urls import path
 from rough_trade_calendar import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("datadatadata", admin.site.urls),
     path(
         "<location>/calendar",
         views.LocationEventsCalendar(),
