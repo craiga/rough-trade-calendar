@@ -79,6 +79,8 @@ class LocationEventsCalendar(ICalFeed):
 class LocationEventsFeed(Feed):
     """Location RSS feed."""
 
+    description_template = "rough_trade_calendar/description.html"
+
     def get_object(self, request, location):  # pylint: disable=arguments-differ
         return models.Location.objects.get(slug=location)
 
@@ -95,9 +97,6 @@ class LocationEventsFeed(Feed):
 
     def item_link(self, item):
         return item.url
-
-    def item_description(self, item):
-        return f"{item.description}\n{item.location} at {item.start_at}"
 
     def item_pubdate(self, item):
         return item.created

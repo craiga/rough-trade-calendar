@@ -1,0 +1,11 @@
+{% load tz rough_trade_calendar %}
+
+{% timezone obj.location.timezone %}
+
+<h1>{{ obj.name }}</h1>
+<p>{{ obj.location.name }}</p>
+<p>{{ obj.start_at }}</p>
+<p><img src="{{ obj.image_url }}"></p>
+<p>{{ obj.description }}</p>
+
+{% endtimezone %}
