@@ -2,10 +2,10 @@
 
 {% timezone obj.location.timezone %}
 
-<h1>{{ obj.name }}</h1>
+<h1><a href="{{ obj.url }}">{{ obj.name }}</a></h1>
 <p>{{ obj.location.name }}</p>
 <p>{{ obj.start_at }}</p>
-<p><img src="{{ obj.image_url }}"></p>
+<p><a href="{{ obj.url }}"><img src="{{ obj.image_url }}"></a></p>
 <p>{{ obj.description }}</p>
 
 {% endtimezone %}
