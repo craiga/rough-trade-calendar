@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5a48e27da5ae0f2779752e1cf39905c5bcaf3a50ba6228e4504df23bb0e48aea"
+            "sha256": "2f675d8f623786fcc4ad4bdee280cf9b179764d24485bb53f0788413bba9a56e"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -125,6 +125,14 @@
             ],
             "index": "pypi",
             "version": "==2.2.4"
+        },
+        "django-debug-toolbar": {
+            "hashes": [
+                "sha256:17c53cd6bf4e7d69902aedf9a1d26c5d3b7369b54c5718744704f27b5a72f35d",
+                "sha256:9a23ada2e43cd989195db3c18710b5d7451134a0d48127ab64c1d2ad81700342"
+            ],
+            "index": "pypi",
+            "version": "==2.0"
         },
         "django-heroku": {
             "hashes": [
@@ -436,6 +444,14 @@
                 "sha256:d8b24664561d0d34ddfaec54636d502d7cea6e29c3eaf68f3df6180863e2166e"
             ],
             "version": "==1.4.3"
+        },
+        "appnope": {
+            "hashes": [
+                "sha256:5b26757dc6f79a3b7dc9fab95359328d5747fcb2409d331ea66d0272b90ab2a0",
+                "sha256:8b995ffe925347a2138d7ac0fe77155e4311a0ea6d6da4f5128fe4b3cbe5ed71"
+            ],
+            "markers": "sys_platform == 'darwin'",
+            "version": "==0.1.0"
         },
         "astroid": {
             "hashes": [

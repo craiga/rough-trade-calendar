@@ -31,10 +31,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "timezone_field",
+    "debug_toolbar",
     "rough_trade_calendar",
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -127,6 +129,12 @@ SECURE_SSL_REDIRECT = not DEBUG
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 X_FRAME_OPTIONS = "DENY"
+
+
+# Internal IPs (required for Django Debug Toolbar)
+# https://docs.djangoproject.com/en/2.2/ref/settings/#internal-ips
+
+INTERNAL_IPS = ["127.0.0.1"]
 
 
 # Configure Django App for Heroku.
