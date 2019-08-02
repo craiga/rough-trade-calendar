@@ -2,6 +2,7 @@
 
 import os
 import re
+from ipaddress import IPv4Network
 
 import dj_database_url
 import django_heroku
@@ -134,7 +135,9 @@ X_FRAME_OPTIONS = "DENY"
 # Internal IPs (required for Django Debug Toolbar)
 # https://docs.djangoproject.com/en/2.2/ref/settings/#internal-ips
 
-INTERNAL_IPS = os.environ.get("INTERNAL_IPS", "127.0.0.1").split(" ")
+INTERNAL_IPS = [
+    str(ip) for ip in IPv4Network(os.environ.get("INTERNAL_IP_CIDR", "127.0.0.1/32"))
+]
 
 
 # Configure Django App for Heroku.
