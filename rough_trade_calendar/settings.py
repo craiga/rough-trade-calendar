@@ -134,7 +134,7 @@ X_FRAME_OPTIONS = "DENY"
 # Internal IPs (required for Django Debug Toolbar)
 # https://docs.djangoproject.com/en/2.2/ref/settings/#internal-ips
 
-INTERNAL_IPS = ["127.0.0.1"]
+INTERNAL_IPS = os.environ.get("INTERNAL_IPS", "127.0.0.1").split(" ")
 
 
 # Configure Django App for Heroku.
