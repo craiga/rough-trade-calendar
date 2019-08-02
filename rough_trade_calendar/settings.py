@@ -45,6 +45,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "csp.middleware.CSPMiddleware",
 ]
 
 ROOT_URLCONF = "rough_trade_calendar.urls"
@@ -148,6 +149,14 @@ class IPv4List(list):
 
 
 INTERNAL_IPS = IPv4List(os.environ.get("INTERNAL_IP_CIDR", "127.0.0.1/32"))
+
+
+# Content Security Policy
+# https://django-csp.readthedocs.io/en/latest/configuration.html
+
+CSP_STYLE_SRC = ["'self'", "unpkg.com"]
+CSP_IMG_SRC = ["'self'", "images.roughtrade.com"]
+CSP_REPORT_URI = os.environ.get("CSP_REPORT_URI", None)
 
 
 # Configure Django App for Heroku.
