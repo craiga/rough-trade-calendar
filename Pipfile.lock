@@ -152,11 +152,11 @@
         },
         "django-ical": {
             "hashes": [
-                "sha256:80071168c7113d8ddf5907bd02bc32af017cf2bfb401d3e988d657819bce4756",
-                "sha256:afdf3020e6f7ed5955a4fc4d500283714b80bed16fcc3724a24e1fdae2bff7ed"
+                "sha256:7ba8c4c9ba572ee606253e171001199193e70360e4aa0eb52a6b4926de357401",
+                "sha256:af7427aa6687784521b3c44d9dd130b19341821255e34059500698fb58ddd356"
             ],
             "index": "pypi",
-            "version": "==1.5"
+            "version": "==1.6.2"
         },
         "django-model-utils": {
             "hashes": [
@@ -165,6 +165,13 @@
             ],
             "index": "pypi",
             "version": "==3.2.0"
+        },
+        "django-recurrence": {
+            "hashes": [
+                "sha256:ac2a7c74001a55268928a6963ca73c65f190bdc007681728b956df750b284433",
+                "sha256:cf865ec07e60bc4203ce09d849b03e1e506a36c56337962d95cd558a7c59b707"
+            ],
+            "version": "==1.10.1"
         },
         "django-timezone-field": {
             "hashes": [
