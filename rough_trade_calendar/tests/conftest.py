@@ -22,3 +22,13 @@ def event(location):
     return mommy.make(
         models.Event, location=location, start_at=timezone.now() + timedelta(days=3)
     )
+
+
+@pytest.fixture
+def events(location):
+    return mommy.make(
+        models.Event,
+        location=location,
+        start_at=timezone.now() + timedelta(days=3),
+        _quantity=5,
+    )

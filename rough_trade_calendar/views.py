@@ -55,7 +55,7 @@ class LocationEventsCalendar(ICalFeed):
     def items(self, location):
         return models.Event.objects.filter(
             location=location, start_at__gte=timezone.now() - timedelta(days=1)
-        )
+        ).select_related("location")
 
     def item_title(self, item):
         return item.name
@@ -91,9 +91,13 @@ class LocationEventsFeed(Feed):
         return location.name
 
     def items(self, location):
-        return models.Event.objects.filter(
-            location=location, start_at__gte=timezone.now() - timedelta(days=1)
-        ).order_by("created")
+        return (
+            models.Event.objects.filter(
+                location=location, start_at__gte=timezone.now() - timedelta(days=1)
+            )
+            .select_related("location")
+            .order_by("created")
+        )
 
     def item_link(self, item):
         return item.url
