@@ -30,8 +30,8 @@ def test_icalendar(location, event, client):
 
 
 @pytest.mark.django_db
-def test_feed(location, event, client):
-    """Test iCalendar feed."""
+def test_rss(location, event, client):
+    """Test RSS feed."""
     response = client.get(f"/{location.slug}/feed", secure=True)
     assert response["Content-Type"].startswith("application/rss+xml")
     feed = feedparser.parse(response.content)
@@ -64,3 +64,21 @@ def test_include_yesterdays_events(location, client):
     )
     response = client.get(f"/{location.slug}", secure=True)
     assert event in list(response.context["events"])
+
+
+@pytest.mark.django_db
+def test_icalendar_query_count(
+    location, events, client, django_assert_max_num_queries
+):  # pylint: disable=unused-argument
+    """Test iCalendar feed query count."""
+    with django_assert_max_num_queries(2):
+        client.get(f"/{location.slug}/calendar", secure=True)
+
+
+@pytest.mark.django_db
+def test_rss_query_count(
+    location, events, client, django_assert_max_num_queries
+):  # pylint: disable=unused-argument
+    """Test RSS feed query count."""
+    with django_assert_max_num_queries(2):
+        client.get(f"/{location.slug}/feed", secure=True)
