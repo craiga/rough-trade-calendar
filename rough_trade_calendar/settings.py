@@ -156,6 +156,7 @@ INTERNAL_IPS = IPv4List(os.environ.get("INTERNAL_IP_CIDR", "127.0.0.1/32"))
 
 CSP_STYLE_SRC = ["'self'", "unpkg.com"]
 CSP_IMG_SRC = ["'self'", "images.roughtrade.com"]
+CSP_SCRIPT_SRC = ["'unsafe-inline'"]
 CSP_REPORT_URI = os.environ.get("CSP_REPORT_URI", None)
 
 
