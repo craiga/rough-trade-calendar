@@ -247,10 +247,10 @@
         },
         "newrelic": {
             "hashes": [
-                "sha256:736c2544bccc2db5a015b1a0f2852ee855b43aec40e5439da54af68640ef3505"
+                "sha256:da9adab674d9fe7aa8fbabb6691b33fb7be94a32b6a80548ec7018be9df8ef65"
             ],
             "index": "pypi",
-            "version": "==5.2.0.127"
+            "version": "==5.2.1.129"
         },
         "parsel": {
             "hashes": [
@@ -287,7 +287,6 @@
                 "sha256:0c35a52e00b672f832e5846826f1fb7507907f7d52fba6faa9e3c4cbe874fe4b",
                 "sha256:b6ada4f840fe51abf5a6bd545b45bf537bea62221fa0dde2e8a553ed9f06a4e3"
             ],
-            "index": "pypi",
             "version": "==0.2.7"
         },
         "pycparser": {
