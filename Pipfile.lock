@@ -152,11 +152,11 @@
         },
         "django-ical": {
             "hashes": [
-                "sha256:7ba8c4c9ba572ee606253e171001199193e70360e4aa0eb52a6b4926de357401",
-                "sha256:af7427aa6687784521b3c44d9dd130b19341821255e34059500698fb58ddd356"
+                "sha256:b50c34bdfa6d7afa63a355125592e862135b849e2c44a592fd66fe2a4edfc29e",
+                "sha256:b6dfe6f86e6bedca2a2147196c48b52d592b7ad02f958e0c349aa871adb924f1"
             ],
             "index": "pypi",
-            "version": "==1.6.2"
+            "version": "==1.7.0"
         },
         "django-model-utils": {
             "hashes": [
