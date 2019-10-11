@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "672a95d0be8a534d41a1c52e280ae33e6b646fdb6cb487d0dad0c0e7a5803ca2"
+            "sha256": "94eb2fa112b8be6db20aee29d64d4cff8e1b08bb9b5d54d043353faab0bdcefb"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -142,6 +142,14 @@
             "index": "pypi",
             "version": "==2.0"
         },
+        "django-feature-policy": {
+            "hashes": [
+                "sha256:9300ea9860c7b4808463aedb7280ceeebd7fb3a304098e9c3c05e633fba1dd3f",
+                "sha256:ad80458672ea3ae69577b0867b239b67bd659b939323bdd7456dd1b919163689"
+            ],
+            "index": "pypi",
+            "version": "==3.0.0"
+        },
         "django-heroku": {
             "hashes": [
                 "sha256:2bc690aab89eedbe01311752320a9a12e7548e3b0ed102681acc5736a41a4762",
@@ -172,6 +180,13 @@
                 "sha256:cf865ec07e60bc4203ce09d849b03e1e506a36c56337962d95cd558a7c59b707"
             ],
             "version": "==1.10.1"
+        },
+        "django-referrer-policy": {
+            "hashes": [
+                "sha256:09e134324fa08c10efc12244a4bae7aee5defa7d332b92c603b09258c854615a"
+            ],
+            "index": "pypi",
+            "version": "==1.0"
         },
         "django-timezone-field": {
             "hashes": [
@@ -485,6 +500,14 @@
                 "sha256:d8b24664561d0d34ddfaec54636d502d7cea6e29c3eaf68f3df6180863e2166e"
             ],
             "version": "==1.4.3"
+        },
+        "appnope": {
+            "hashes": [
+                "sha256:5b26757dc6f79a3b7dc9fab95359328d5747fcb2409d331ea66d0272b90ab2a0",
+                "sha256:8b995ffe925347a2138d7ac0fe77155e4311a0ea6d6da4f5128fe4b3cbe5ed71"
+            ],
+            "markers": "sys_platform == 'darwin'",
+            "version": "==0.1.0"
         },
         "astroid": {
             "hashes": [

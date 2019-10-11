@@ -5,6 +5,7 @@ import os
 import re
 
 import dj_database_url
+import django_feature_policy
 import django_heroku
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
@@ -39,13 +40,15 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "csp.middleware.CSPMiddleware",
+    "django_referrer_policy.middleware.ReferrerPolicyMiddleware",
+    "django_feature_policy.FeaturePolicyMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "csp.middleware.CSPMiddleware",
 ]
 
 ROOT_URLCONF = "rough_trade_calendar.urls"
@@ -161,6 +164,25 @@ CSP_SCRIPT_SRC = [
     "https://js-agent.newrelic.com",
 ]  # required for New Relic
 CSP_REPORT_URI = os.environ.get("CSP_REPORT_URI", None)
+
+if DEBUG:
+    CSP_SCRIPT_SRC += ["http://localhost:*", "http://127.0.0.1:*"]
+
+
+# Referrer policy
+# https://django-referrer-policy.readthedocs.io/en/latest/#configuration
+
+REFERRER_POLICY = "same-origin"
+
+
+# Feature policy
+# https://github.com/adamchainz/django-feature-policy#setting
+# List of directives from
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
+
+FEATURE_POLICY = {
+    feature_name: "none" for feature_name in django_feature_policy.FEATURE_NAMES
+}
 
 
 # Configure Django App for Heroku.
