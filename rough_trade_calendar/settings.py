@@ -5,6 +5,7 @@ import os
 import re
 
 import dj_database_url
+import django_feature_policy
 import django_heroku
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
@@ -164,6 +165,9 @@ CSP_SCRIPT_SRC = [
 ]  # required for New Relic
 CSP_REPORT_URI = os.environ.get("CSP_REPORT_URI", None)
 
+if DEBUG:
+    CSP_SCRIPT_SRC += ["http://localhost:*", "http://127.0.0.1:*"]
+
 
 # Referrer policy
 # https://django-referrer-policy.readthedocs.io/en/latest/#configuration
@@ -173,14 +177,11 @@ REFERRER_POLICY = "same-origin"
 
 # Feature policy
 # https://github.com/adamchainz/django-feature-policy#setting
+# List of directives from
+# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
 
 FEATURE_POLICY = {
-    "layout-animations": 'none',
-    "unoptimized-images": 'none',
-    "oversized-images": 'none',
-    "sync-script": 'none',
-    "sync-xhr": 'none',
-    "unsized-media": 'none',
+    feature_name: "none" for feature_name in django_feature_policy.FEATURE_NAMES
 }
 
 
