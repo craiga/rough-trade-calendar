@@ -8,7 +8,7 @@ import feedparser
 import pytest
 import pytz
 from icalendar import Calendar
-from model_mommy import mommy
+from model_bakery import baker
 
 from rough_trade_calendar import models
 
@@ -49,7 +49,7 @@ def test_rss(location, event, client):
 @pytest.mark.django_db
 def test_exclude_old_events(location, client):
     """Ensure old events are excluded."""
-    event = mommy.make(
+    event = baker.make(
         models.Event, location=location, start_at=timezone.now() - timedelta(days=7)
     )
     response = client.get(f"/{location.slug}", secure=True)
@@ -59,7 +59,7 @@ def test_exclude_old_events(location, client):
 @pytest.mark.django_db
 def test_include_yesterdays_events(location, client):
     """Ensure events less than 24 hours old are not excluded."""
-    event = mommy.make(
+    event = baker.make(
         models.Event, location=location, start_at=timezone.now() - timedelta(hours=23)
     )
     response = client.get(f"/{location.slug}", secure=True)
