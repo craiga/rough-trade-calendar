@@ -10,12 +10,12 @@ isort = "*"
 pytest = "*"
 icalendar = "*"
 pytest-django = "*"
-model-mommy = "*"
 faker = "*"
 pylint = "*"
 pylint-django = "*"
 pyenchant = "*"
 feedparser = "*"
+model-bakery = "*"
 
 [packages]
 django = "*"

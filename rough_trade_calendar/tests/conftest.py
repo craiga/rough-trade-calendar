@@ -7,26 +7,26 @@ from datetime import timedelta
 from django.utils import timezone
 
 import pytest
-from model_mommy import mommy
+from model_bakery import baker
 
 from rough_trade_calendar import models
 
 
 @pytest.fixture
 def location():
-    return mommy.make(models.Location)
+    return baker.make(models.Location)
 
 
 @pytest.fixture
 def event(location):
-    return mommy.make(
+    return baker.make(
         models.Event, location=location, start_at=timezone.now() + timedelta(days=3)
     )
 
 
 @pytest.fixture
 def events(location):
-    return mommy.make(
+    return baker.make(
         models.Event,
         location=location,
         start_at=timezone.now() + timedelta(days=3),
