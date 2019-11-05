@@ -166,7 +166,8 @@ CSP_SCRIPT_SRC = [
 CSP_REPORT_URI = os.environ.get("CSP_REPORT_URI", None)
 
 if DEBUG:
-    CSP_SCRIPT_SRC += ["http://localhost:*", "http://127.0.0.1:*"]
+    # CSP requirements for Django Debug Toolbar.
+    CSP_SCRIPT_SRC += ["'self'"]
 
 
 # Referrer policy
