@@ -26,13 +26,17 @@ class EventsSpider(scrapy.Spider):
             for month_num in range(0, 6):
                 date = now + relativedelta(months=month_num)
                 url = "/".join([loc.events_url, str(date.year), str(date.month)])
-                yield scrapy.Request(url=url, callback=self.parse)
+                yield scrapy.Request(
+                    url=url, callback=self.parse, cb_kwargs={"date": date}
+                )
 
-    def parse(self, response):
+    def parse(self, response, date):  # pylint: disable=arguments-differ
         loc = models.Location.objects.get_by_events_url(response.url)
 
         for event in response.xpath("//div[contains(@class, 'event-same-height')]"):
-            start_at = parse(event.xpath(".//*[@class='text-sm']/text()").get())
+            start_at = parse(
+                event.xpath(".//*[@class='text-sm']/text()").get(), default=date
+            )
             start_at = loc.timezone.localize(start_at)
 
             description = event.xpath(".//div[contains(@class, 'f-n')]/text()").get()

@@ -30,7 +30,7 @@ def html():
 
 @pytest.fixture
 def response(location, html):
-    return TextResponse(location.events_url, body=html, encoding="utf-8")
+    return TextResponse(f"{location.events_url}/1978/3", body=html, encoding="utf-8")
 
 
 @pytest.fixture
@@ -55,7 +55,7 @@ def empty_response(location, empty_html):
 def test_spider_parse(response, location):
     """Test that spider parses HTML."""
     spider = spiders.EventsSpider()
-    event_items = list(spider.parse(response))
+    event_items = list(spider.parse(response, date=datetime(1978, 1, 1)))
     assert len(event_items) == 11
 
     event_item = event_items[0]
@@ -80,5 +80,5 @@ def test_spider_parse(response, location):
 def test_spider_parse_empty(empty_response):
     """Test that spider parses HTML."""
     spider = spiders.EventsSpider()
-    event_items = list(spider.parse(empty_response))
+    event_items = list(spider.parse(empty_response, date=datetime(1978, 1, 1)))
     assert event_items == []
