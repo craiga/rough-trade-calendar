@@ -74,7 +74,7 @@ WSGI_APPLICATION = "rough_trade_calendar.wsgi.application"
 
 
 # Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+# https://docs.djangoproject.com/en/stable/ref/settings/#databases
 
 DATABASES = {
     "default": {
@@ -85,7 +85,7 @@ DATABASES = {
 
 
 # Password validation
-# https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/stable/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -98,7 +98,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/2.2/topics/i18n/
+# https://docs.djangoproject.com/en/stable/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
 
@@ -112,18 +112,18 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
+# https://docs.djangoproject.com/en/stable/howto/static-files/
 
 STATIC_URL = "/static/"
 
 
 # Ignore 404s
-# https://docs.djangoproject.com/en/2.2/ref/settings/#std:setting-IGNORABLE_404_URLS
+# https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-IGNORABLE_404_URLS
 
 IGNORABLE_404_URLS = [re.compile(r"^/phpmyadmin/"), re.compile(r"\.php$")]
 
 # Security
-# https://docs.djangoproject.com/en/2.2/topics/security/
+# https://docs.djangoproject.com/en/stable/topics/security/
 
 SECURE_HSTS_SECONDS = 0 if DEBUG else 60
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
@@ -137,7 +137,7 @@ X_FRAME_OPTIONS = "DENY"
 
 
 # Internal IPs (required for Django Debug Toolbar)
-# https://docs.djangoproject.com/en/2.2/ref/settings/#internal-ips
+# https://docs.djangoproject.com/en/stable/ref/settings/#internal-ips
 
 
 class IPv4List(list):
@@ -155,7 +155,7 @@ INTERNAL_IPS = IPv4List(os.environ.get("INTERNAL_IP_CIDR", "127.0.0.1/32"))
 
 
 # Content Security Policy
-# https://django-csp.readthedocs.io/en/latest/configuration.html
+# https://django-csp.readthedocs.io/en/stable/configuration.html
 
 CSP_STYLE_SRC = ["'self'", "unpkg.com"]
 CSP_IMG_SRC = ["'self'", "images.roughtrade.com"]
@@ -171,15 +171,13 @@ if DEBUG:
 
 
 # Referrer policy
-# https://django-referrer-policy.readthedocs.io/en/latest/#configuration
+# https://django-referrer-policy.readthedocs.io/en/stable/#configuration
 
 REFERRER_POLICY = "same-origin"
 
 
 # Feature policy
 # https://github.com/adamchainz/django-feature-policy#setting
-# List of directives from
-# https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy
 
 FEATURE_POLICY = {
     feature_name: "none" for feature_name in django_feature_policy.FEATURE_NAMES
