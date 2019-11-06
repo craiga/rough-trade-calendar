@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "81a646c12d71f226e7fc83ec93e4835b31550750453aa53298ca948f92ee2a61"
+            "sha256": "21029b5c4d8b36a679ce5cbf133cff4f66ac78c860661f4d97f47b2c08c9d8fe"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -205,6 +205,14 @@
             ],
             "index": "pypi",
             "version": "==19.9.0"
+        },
+        "html2text": {
+            "hashes": [
+                "sha256:55ce85704f244fc18890c5ded89fa22ff7333e41e9f3cad04d51f48d62ad8834",
+                "sha256:6f56057c5c2993b5cc5b347cb099bdf6d095828fef1b53ef4e2a2bf2a1be9b4f"
+            ],
+            "index": "pypi",
+            "version": "==2019.9.26"
         },
         "hyperlink": {
             "hashes": [
@@ -513,6 +521,14 @@
             ],
             "version": "==1.4.3"
         },
+        "appnope": {
+            "hashes": [
+                "sha256:5b26757dc6f79a3b7dc9fab95359328d5747fcb2409d331ea66d0272b90ab2a0",
+                "sha256:8b995ffe925347a2138d7ac0fe77155e4311a0ea6d6da4f5128fe4b3cbe5ed71"
+            ],
+            "markers": "sys_platform == 'darwin'",
+            "version": "==0.1.0"
+        },
         "astroid": {
             "hashes": [
                 "sha256:09a3fba616519311f1af8a461f804b68f0370e100c9264a035aa7846d7852e33",
@@ -783,7 +799,6 @@
                 "sha256:4acadc9a2b96c19fe00932a38ca63e601180c39a189a696abce1eaab641447e1",
                 "sha256:61b5ed888beab19ddccab3478910e2076a6b5a0295dffc43021890e136edf764"
             ],
-            "index": "pypi",
             "version": "==2.4.4"
         },
         "pytest": {

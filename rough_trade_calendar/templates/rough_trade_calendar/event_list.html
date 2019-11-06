@@ -28,12 +28,17 @@
 
 <div class="flex flex-wrap pl2">
     {% for event in events %}
-        <a class="w5 pr2 pb2 link black" href="{{ event.url }}">
-            <img src="{{ event.image_url }}">
-            <h2>{{ event.name }}</h2>
-            <p>{{ event.description }}</p>
-            <p>{{ event.start_at}} </p>
-        </a>
+        <div class="w5 pr2 pb2">
+            <a class="link black" href="{{ event.url }}">
+                <img src="{{ event.image_url }}">
+                <h2>{{ event.name }}</h2>
+                <p>{{ event.description }}</p>
+                <p>{{ event.start_at}}</p>
+            </a>
+            {% if event.youtube_id %}
+                <p><a href="https://www.youtube.com/watch/?v={{ event.youtube_id }}" class="link br3 ph3 pv2 dib white bg-red bg-animate hover-bg-black o-100">YouTube</a></p>
+            {% endif %}
+        </div>
     {% endfor %}
 </div>
 

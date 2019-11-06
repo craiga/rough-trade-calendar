@@ -34,6 +34,13 @@ def existing_event_item(location, event):
     )
 
 
+@pytest.fixture
+def detail_event_item(event):
+    return spiders.Event(
+        url=event.url, youtube_id=fake.pystr(), detail_html=fake.pystr()
+    )
+
+
 @pytest.mark.django_db
 def test_pipeline_update_create(new_event_item):
     """Test that items are created by the pipeline."""
@@ -52,4 +59,16 @@ def test_pipeline_update(existing_event_item, event):
     pipeline.process_item(existing_event_item, None)
     event.refresh_from_db()
     assert event.name == existing_event_item["name"]
+    assert event.created == initial_created
+
+
+@pytest.mark.django_db
+def test_pipeline_update_with_detail(detail_event_item, event):
+    """Test that items are updated with details."""
+    initial_created = event.created
+    pipeline = pipelines.EventDjangoPipeline()
+    assert not event.detail_html == detail_event_item["detail_html"]
+    pipeline.process_item(detail_event_item, None)
+    event.refresh_from_db()
+    assert event.detail_html == detail_event_item["detail_html"]
     assert event.created == initial_created

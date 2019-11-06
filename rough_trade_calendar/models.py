@@ -37,6 +37,8 @@ class Event(TimeStampedModel):
     description = models.TextField()
     url = models.URLField(unique=True)
     image_url = models.URLField()
+    youtube_id = models.TextField()
+    detail_html = models.TextField()
     start_at = models.DateTimeField()
     location = models.ForeignKey(
         Location, on_delete=models.CASCADE, related_name="events"

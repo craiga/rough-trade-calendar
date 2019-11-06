@@ -9,6 +9,7 @@ from django.utils import timezone
 from django.views.generic import ListView
 
 from django_ical.views import ICalFeed
+from html2text import html2text
 
 from rough_trade_calendar import models
 
@@ -61,7 +62,11 @@ class LocationEventsCalendar(ICalFeed):
         return item.name
 
     def item_description(self, item):
-        return item.description
+        description = html2text(item.detail_html)
+        if item.youtube_id:
+            description += f"\n\nhttps://www.youtube.com/watch/?v={ item.youtube_id }"
+
+        return description
 
     def item_start_datetime(self, item):
         return item.start_at
