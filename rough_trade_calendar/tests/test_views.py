@@ -23,10 +23,21 @@ def test_icalendar(location, event, client):
     assert len(cal.subcomponents) == 1
     cal_event = cal.subcomponents[0]
     assert event.name == cal_event["SUMMARY"]
-    assert event.description == cal_event["DESCRIPTION"]
+    assert event.detail_html in cal_event["DESCRIPTION"]
+    assert (
+        f"https://www.youtube.com/watch/?v={ event.youtube_id }"
+        in cal_event["DESCRIPTION"]
+    )
     assert event.start_at.replace(microsecond=0) == cal_event.decoded("DTSTART")
     assert event.location.name == cal_event["LOCATION"]
     assert event.url == cal_event["URL"]
+
+    event.youtube_id = ""
+    event.save()
+    response = client.get(f"/{location.slug}/calendar", secure=True)
+    cal = Calendar.from_ical(response.content)
+    cal_event = cal.subcomponents[0]
+    assert "youtube.com" not in cal_event["DESCRIPTION"]
 
 
 @pytest.mark.django_db
@@ -42,6 +53,7 @@ def test_rss(location, event, client):
     assert event.name == feed_event["title"]
     assert event.description in feed_event["summary"]
     assert event.location.name in feed_event["summary"]
+    assert event.detail_html in feed_event["summary"]
     assert event.url == feed_event["link"]
     assert event.created.timetuple() == feed_event["published_parsed"]
 

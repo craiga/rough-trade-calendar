@@ -1,4 +1,4 @@
-"""Scrapy spider tests."""
+"""Events spider tests."""
 
 # pylint: disable=redefined-outer-name
 
@@ -73,7 +73,6 @@ def test_spider_parse(response, location):
 
     event_item = event_items[1]
     assert event_item["name"] == "No Description"
-    assert event_item["description"] == ""
 
 
 @pytest.mark.django_db

@@ -1,5 +1,6 @@
 """Scrapy spiders."""
 
+import re
 from datetime import datetime
 from urllib.parse import urljoin
 
@@ -53,3 +54,31 @@ class EventsSpider(scrapy.Spider):
             )
 
             yield event
+
+
+class EventDetailSpider(scrapy.Spider):
+    """Event detail spider."""
+
+    name = "rough_trade_event_detail"
+
+    def start_requests(self):
+        for event in models.Event.objects.all():
+            yield scrapy.Request(url=event.url, callback=self.parse)
+
+    def parse(self, response):
+        event = models.Event.objects.get(url=response.url)
+
+        youtube_embed_url = response.xpath(
+            "//iframe[contains(@src, 'youtube.com')]/@src"
+        ).get()
+        if youtube_embed_url:
+            match = re.search(r"youtube\.com/embed/([^\?]+)", youtube_embed_url)
+            youtube_id = match.group(1)
+        else:
+            youtube_id = ""
+
+        detail_html = response.xpath("//div[contains(@class, 'editorial')]").get()
+
+        event = Event(url=response.url, youtube_id=youtube_id, detail_html=detail_html)
+
+        yield event

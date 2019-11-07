@@ -10,3 +10,4 @@ fi
 python manage.py migrate --no-input
 python manage.py loaddata locations
 scrapy crawl rough_trade_events
+scrapy crawl rough_trade_event_detail

@@ -12,7 +12,15 @@ class EventDjangoPipeline:
         """Process item."""
         try:
             event = models.Event.objects.get(url=item["url"])
-            item["created"] = event.created
+
+            # Copy data not specified in the item from the existing model instance.
+            for field in event._meta.fields:
+                if field.name == "id":  # don't copy the ID!
+                    continue
+
+                if field.name not in item:
+                    item[field.name] = getattr(event, field.name)
+
             event_id = event.id
             event = item.save(commit=False)
             event.id = event_id
