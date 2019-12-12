@@ -18,7 +18,7 @@ feedparser = "*"
 model-bakery = "*"
 
 [packages]
-django = "*"
+django = "< 3"
 scrapy = "*"
 django-model-utils = "*"
 scrapy-djangoitem = "*"
