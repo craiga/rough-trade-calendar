@@ -10,6 +10,7 @@ Web site and iCalendar feeds listing upcoming Rough Trade in-store events.
 
 ```
 pipenv install
+printf "DEBUG=1\n" > .env
 pipenv run python manage.py migrate
 pipenv run python manage.py loaddata locations
 pipenv run python manage.py runserver
