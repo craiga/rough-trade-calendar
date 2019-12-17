@@ -1,4 +1,8 @@
-"""Scrapy settings."""
+"""
+Scrapy settings.
+
+https://docs.scrapy.org/en/latest/topics/settings.html#built-in-settings-reference
+"""
 
 import os
 
@@ -22,3 +26,6 @@ EXTENSIONS = {
     # https://github.com/llonchj/scrapy-sentry
     "scrapy_sentry.extensions.Errors": 10
 }
+
+HTTPERROR_ALLOW_ALL = True
+REDIRECT_ENABLED = False

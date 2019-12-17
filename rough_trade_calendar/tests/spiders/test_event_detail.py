@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 from scrapy.http import TextResponse
 
-from rough_trade_calendar import spiders
+from rough_trade_calendar import models, spiders
 
 
 @pytest.fixture
@@ -44,6 +44,11 @@ def no_youtube_response(event, no_youtube_html):
     return TextResponse(event.url, body=no_youtube_html, encoding="utf-8")
 
 
+@pytest.fixture
+def response_404(event):
+    return TextResponse(event.url, status=404)
+
+
 @pytest.mark.django_db
 def test_spider_parse(response):
     """Test that spider parses HTML."""
@@ -63,3 +68,13 @@ def test_no_youtube(no_youtube_response):
     assert len(event_items) == 1
     event_item = event_items[0]
     assert event_item["youtube_id"] == ""
+
+
+@pytest.mark.django_db
+def test_spider_404(response_404, event):
+    """Test that spider deletes events which no longer exist."""
+    spider = spiders.EventDetailSpider()
+    event_items = list(spider.parse(response_404))
+    assert len(event_items) == 0
+    with pytest.raises(models.Event.DoesNotExist):
+        event.refresh_from_db()

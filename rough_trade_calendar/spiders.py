@@ -68,17 +68,27 @@ class EventDetailSpider(scrapy.Spider):
     def parse(self, response):
         event = models.Event.objects.get(url=response.url)
 
-        youtube_embed_url = response.xpath(
-            "//iframe[contains(@src, 'youtube.com')]/@src"
-        ).get()
-        if youtube_embed_url:
-            match = re.search(r"youtube\.com/embed/([^\?]+)", youtube_embed_url)
-            youtube_id = match.group(1)
+        if response.status >= 300:
+            self.logger.info(
+                "Request for %s returned status %d; deleting event."
+                % (response.url, response.status)
+            )
+            event.delete()
+
         else:
-            youtube_id = ""
+            youtube_embed_url = response.xpath(
+                "//iframe[contains(@src, 'youtube.com')]/@src"
+            ).get()
+            if youtube_embed_url:
+                match = re.search(r"youtube\.com/embed/([^\?]+)", youtube_embed_url)
+                youtube_id = match.group(1)
+            else:
+                youtube_id = ""
 
-        detail_html = response.xpath("//div[contains(@class, 'editorial')]").get()
+            detail_html = response.xpath("//div[contains(@class, 'editorial')]").get()
 
-        event = Event(url=response.url, youtube_id=youtube_id, detail_html=detail_html)
+            event = Event(
+                url=response.url, youtube_id=youtube_id, detail_html=detail_html
+            )
 
-        yield event
+            yield event
