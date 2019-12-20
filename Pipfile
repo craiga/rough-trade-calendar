@@ -36,3 +36,6 @@ newrelic = "*"
 django-referrer-policy = "*"
 django-feature-policy = "*"
 html2text = "*"
+
+[requires]
+python_version = "3.8"

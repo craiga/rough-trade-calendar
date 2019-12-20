@@ -7,7 +7,7 @@ jobs:
   build:
     working_directory: ~/rough-trade-calendar
     docker:
-      - image: circleci/python:3.7
+      - image: circleci/python:3.8
         environment:
           DATABASE_URL: postgresql://rough_trade_calendar:security_is_important@localhost/rough_trade_calendar
           DATABASE_NO_SSL_REQUIRE: True
