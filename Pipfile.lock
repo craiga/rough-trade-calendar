@@ -1,10 +1,12 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5d3e29c989d83027692bc42ebf34ac9e84eac4077c8a855db7cb5ce72ab23aab"
+            "sha256": "b2a16b7fc181251f126c9a1ec795e02021509b80375b983839774120646b8bef"
         },
         "pipfile-spec": 6,
-        "requires": {},
+        "requires": {
+            "python_version": "3.8"
+        },
         "sources": [
             {
                 "name": "pypi",
@@ -123,11 +125,11 @@
         },
         "django": {
             "hashes": [
-                "sha256:a4ad4f6f9c6a4b7af7e2deec8d0cbff28501852e5010d6c2dc695d3d1fae7ca0",
-                "sha256:fa98ec9cc9bf5d72a08ebf3654a9452e761fbb8566e3f80de199cbc15477e891"
+                "sha256:662a1ff78792e3fd77f16f71b1f31149489434de4b62a74895bd5d6534e635a5",
+                "sha256:687c37153486cf26c3fdcbdd177ef16de38dc3463f094b5f9c9955d91f277b14"
             ],
             "index": "pypi",
-            "version": "==2.2.8"
+            "version": "==2.2.9"
         },
         "django-csp": {
             "hashes": [
@@ -277,10 +279,10 @@
         },
         "newrelic": {
             "hashes": [
-                "sha256:d0e69703792f5abb7ea2440bbbcaa560892c364a09df60bdf36db77f95124f7b"
+                "sha256:0e651f2ff48dd1fc538fc1297892cf726d1ad4fc0b2578aae6a47f10f16afb2c"
             ],
             "index": "pypi",
-            "version": "==5.4.0.132"
+            "version": "==5.4.1.134"
         },
         "parsel": {
             "hashes": [
@@ -329,6 +331,7 @@
         },
         "pycparser": {
             "hashes": [
+                "sha256:71243d7f99448ffad70124d2f9e1e435a84b671d8406fac1cf720f2988512f9e",
                 "sha256:a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
             ],
             "version": "==2.19"
@@ -586,11 +589,11 @@
         },
         "django": {
             "hashes": [
-                "sha256:a4ad4f6f9c6a4b7af7e2deec8d0cbff28501852e5010d6c2dc695d3d1fae7ca0",
-                "sha256:fa98ec9cc9bf5d72a08ebf3654a9452e761fbb8566e3f80de199cbc15477e891"
+                "sha256:662a1ff78792e3fd77f16f71b1f31149489434de4b62a74895bd5d6534e635a5",
+                "sha256:687c37153486cf26c3fdcbdd177ef16de38dc3463f094b5f9c9955d91f277b14"
             ],
             "index": "pypi",
-            "version": "==2.2.8"
+            "version": "==2.2.9"
         },
         "faker": {
             "hashes": [
