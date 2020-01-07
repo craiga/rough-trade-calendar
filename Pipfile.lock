@@ -344,10 +344,11 @@
         },
         "pyhamcrest": {
             "hashes": [
-                "sha256:6b672c02fdf7470df9674ab82263841ce8333fb143f32f021f6cb26f0e512420",
-                "sha256:8ffaa0a53da57e89de14ced7185ac746227a8894dbd5a3c718bf05ddbd1d56cd"
+                "sha256:39eb9abde7914a4016c8a58216d044a3cd1d9ccd2de7d89bcbaf9d656e224bc8",
+                "sha256:c07a77cc60b91a761e3476f4422564c83cb5cd46073ac788d3af007f4e01b163"
             ],
-            "version": "==1.9.0"
+            "index": "pypi",
+            "version": "==1.10.0"
         },
         "pyopenssl": {
             "hashes": [
@@ -701,7 +702,6 @@
                 "sha256:aec3fdbb8bc9e4bb65f0634b9f551ced63983a529d6a8931817d52fdd0816ddb",
                 "sha256:fe1d8331dfa7cc0a883b49d75fc76380b2ab2734b220fbb87d774e4fd4b851f8"
             ],
-            "index": "pypi",
             "version": "==20.0"
         },
         "parso": {
