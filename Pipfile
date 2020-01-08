@@ -33,7 +33,6 @@ scrapy-sentry = "*"
 django-debug-toolbar = "*"
 django-csp = "*"
 newrelic = "*"
-django-referrer-policy = "*"
 django-feature-policy = "*"
 html2text = "*"
 
