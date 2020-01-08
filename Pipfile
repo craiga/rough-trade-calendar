@@ -18,7 +18,7 @@ feedparser = "*"
 model-bakery = "*"
 
 [packages]
-django = "< 3"
+django = "*"
 scrapy = "*"
 django-model-utils = "*"
 scrapy-djangoitem = "*"
@@ -33,7 +33,6 @@ scrapy-sentry = "*"
 django-debug-toolbar = "*"
 django-csp = "*"
 newrelic = "*"
-django-referrer-policy = "*"
 django-feature-policy = "*"
 html2text = "*"
 

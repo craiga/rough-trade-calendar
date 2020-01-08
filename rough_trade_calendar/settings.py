@@ -41,7 +41,6 @@ MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "csp.middleware.CSPMiddleware",
-    "django_referrer_policy.middleware.ReferrerPolicyMiddleware",
     "django_feature_policy.FeaturePolicyMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -134,6 +133,7 @@ SECURE_SSL_REDIRECT = not DEBUG
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 X_FRAME_OPTIONS = "DENY"
+SECURE_REFERRER_POLICY = "same-origin"
 
 
 # Internal IPs (required for Django Debug Toolbar)
@@ -168,12 +168,6 @@ CSP_REPORT_URI = os.environ.get("CSP_REPORT_URI", None)
 if DEBUG:
     # CSP requirements for Django Debug Toolbar.
     CSP_SCRIPT_SRC += ["'self'"]
-
-
-# Referrer policy
-# https://django-referrer-policy.readthedocs.io/en/stable/#configuration
-
-REFERRER_POLICY = "same-origin"
 
 
 # Feature policy
