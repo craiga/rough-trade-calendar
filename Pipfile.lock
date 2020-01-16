@@ -344,10 +344,11 @@
         },
         "pyhamcrest": {
             "hashes": [
-                "sha256:d31a6793c6e5fa47137d7be3e796df3645b0afa0092db01ec946d6bee086ab8c",
-                "sha256:f7ae19ddfd71f11a421bcec9608d708c0fab816db98b51fdbc672a6d99a30874"
+                "sha256:36cda5e849e3ee9ce54628667471e5e769f596259bb3c13c3596f6059a615ef8",
+                "sha256:5959cb4ab465b303522d2e0d270a6ee581c3ad9ba419e304bb6ebe50a60ea37a"
             ],
-            "version": "==1.10.1"
+            "index": "pypi",
+            "version": "==2.0.0"
         },
         "pyopenssl": {
             "hashes": [
