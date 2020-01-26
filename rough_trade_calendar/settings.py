@@ -163,7 +163,8 @@ CSP_IMG_SRC = ["'self'", "images.roughtrade.com"]
 CSP_SCRIPT_SRC = [
     "'unsafe-inline'",
     "https://js-agent.newrelic.com",
-]  # required for New Relic
+    "https://cdn.usefathom.com",
+]
 CSP_REPORT_URI = os.environ.get("CSP_REPORT_URI", None)
 
 if DEBUG:
