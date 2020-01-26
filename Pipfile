@@ -35,6 +35,7 @@ django-csp = "*"
 newrelic = "*"
 django-feature-policy = "*"
 html2text = "*"
+django-enforce-host = "*"
 
 [requires]
 python_version = "3.8"

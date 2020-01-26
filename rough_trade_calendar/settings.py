@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "enforce_host.EnforceHostMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "csp.middleware.CSPMiddleware",
     "django_feature_policy.FeaturePolicyMiddleware",
@@ -176,6 +177,12 @@ if DEBUG:
 FEATURE_POLICY = {
     feature_name: "none" for feature_name in django_feature_policy.FEATURE_NAMES
 }
+
+
+# Enforce Host
+# https://github.com/dabapps/django-enforce-host
+
+ENFORCE_HOST = os.environ.get("CANONICAL_HOST")
 
 
 # Configure Django App for Heroku.
