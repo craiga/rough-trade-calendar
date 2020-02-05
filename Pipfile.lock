@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "31603b1d19a2047dd6bbd8b322d00d53465895a3284720291d6ca95bc8a13965"
+            "sha256": "131d65e7a70cf30f6c10862e763056d866be856c730f2ed72f62f592a2ac7ea2"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -285,13 +285,6 @@
             "markers": "python_version != '3.4'",
             "version": "==4.5.0"
         },
-        "newrelic": {
-            "hashes": [
-                "sha256:8283dd54299b3fd2818a262f38f9193a2ee52b2a02fecca1a1d04764be533c92"
-            ],
-            "index": "pypi",
-            "version": "==5.6.0.135"
-        },
         "parsel": {
             "hashes": [
                 "sha256:4da4262ba4605573b6b72a5f557616a2fc9dee7a47a1efad562752a28d366723",
@@ -543,6 +536,14 @@
                 "sha256:d8b24664561d0d34ddfaec54636d502d7cea6e29c3eaf68f3df6180863e2166e"
             ],
             "version": "==1.4.3"
+        },
+        "appnope": {
+            "hashes": [
+                "sha256:5b26757dc6f79a3b7dc9fab95359328d5747fcb2409d331ea66d0272b90ab2a0",
+                "sha256:8b995ffe925347a2138d7ac0fe77155e4311a0ea6d6da4f5128fe4b3cbe5ed71"
+            ],
+            "markers": "sys_platform == 'darwin'",
+            "version": "==0.1.0"
         },
         "asgiref": {
             "hashes": [

@@ -160,11 +160,7 @@ INTERNAL_IPS = IPv4List(os.environ.get("INTERNAL_IP_CIDR", "127.0.0.1/32"))
 
 CSP_STYLE_SRC = ["'self'", "unpkg.com"]
 CSP_IMG_SRC = ["'self'", "images.roughtrade.com", "https://collect.usefathom.com"]
-CSP_SCRIPT_SRC = [
-    "'unsafe-inline'",
-    "https://js-agent.newrelic.com",
-    "https://cdn.usefathom.com",
-]
+CSP_SCRIPT_SRC = ["'unsafe-inline'", "https://cdn.usefathom.com"]
 CSP_REPORT_URI = os.environ.get("CSP_REPORT_URI", None)
 
 if DEBUG:
