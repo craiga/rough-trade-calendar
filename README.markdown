@@ -1,6 +1,6 @@
 # Rough Trade Calendar
 
-![CircleCI](https://img.shields.io/circleci/build/github/craiga/rough-trade-calendar.svg) ![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2Frough-trade-calendar.herokuapp.com)
+[![CircleCI](https://img.shields.io/circleci/build/github/craiga/rough-trade-calendar.svg)](https://circleci.com/gh/craiga/rough-trade-calendar) [![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2Frough-trade-calendars.craiga.id.au)](https://securityheaders.com/?q=https%3A%2F%2Frough-trade-calendars.craiga.id.au)
 
 Web site and iCalendar feeds listing upcoming Rough Trade in-store events.
 
