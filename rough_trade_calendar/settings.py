@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "timezone_field",
     "debug_toolbar",
+    "django_filters",
+    "graphene_django",
     "rough_trade_calendar",
 ]
 
@@ -137,6 +139,23 @@ X_FRAME_OPTIONS = "DENY"
 SECURE_REFERRER_POLICY = "same-origin"
 
 
+# Django Debug Toolbar
+# https://django-debug-toolbar.readthedocs.io/en/stable/configuration.html
+
+# Don't show toolbar on GraphiQL requests. Adapted from
+# https://github.com/jazzband/django-debug-toolbar/issues/284#issuecomment-26628017
+
+
+def show_toolbar_sometimes(request):
+    # pylint: disable=import-outside-toplevel
+    from debug_toolbar.middleware import show_toolbar
+
+    return show_toolbar(request) and not request.path.startswith("/graphql")
+
+
+DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": show_toolbar_sometimes}
+
+
 # Internal IPs (required for Django Debug Toolbar)
 # https://docs.djangoproject.com/en/stable/ref/settings/#internal-ips
 
@@ -180,6 +199,12 @@ FEATURE_POLICY = {
 # https://github.com/dabapps/django-enforce-host
 
 ENFORCE_HOST = os.environ.get("CANONICAL_HOST")
+
+
+# Graphene
+# https://github.com/graphql-python/graphene-django#settings
+
+GRAPHENE = {"SCHEMA": "rough_trade_calendar.graphql.schema"}
 
 
 # Configure Django App for Heroku.
