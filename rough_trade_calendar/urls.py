@@ -3,13 +3,17 @@
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
+from django.views.decorators.csrf import csrf_exempt
 
 import debug_toolbar
+from csp.decorators import csp_exempt
+from graphene_django.views import GraphQLView
 
 from rough_trade_calendar import views
 
 urlpatterns = [
     path("datadatadata/", admin.site.urls),
+    path("graphql", csp_exempt(csrf_exempt(GraphQLView.as_view(graphiql=True)))),
     path(
         "<location>/calendar",
         views.LocationEventsCalendar(),

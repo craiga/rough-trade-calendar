@@ -1,7 +1,7 @@
 [MASTER]
 load-plugins = pylint.extensions.mccabe, pylint_django, pylint.extensions.bad_builtin
 ignore-patterns = manage.py, \d{4}.*.py
-good-names = application, urlpatterns, i, j, k, rf
+good-names = application, urlpatterns, i, j, k, rf, schema
 
 [REPORTS]
 output-format = colorized
@@ -18,6 +18,7 @@ docstring-min-length = 5
 include-naming-hint = yes
 function-rgx = (([a-z_][a-z0-9_]{2,40})|(_[a-z0-9_]*)|(__[a-z][a-z0-9_]+__))$
 const-rgx = (([A-Z_][A-Z0-9_]*)|(__.*__)|(fake|app))$
+no-docstring-rgx = ^_|(Meta)
 
 [SIMILARITIES]
 ignore-imports=yes
