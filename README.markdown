@@ -35,3 +35,7 @@ pipenv run python manage.py loaddata locations
 pipenv run scrapy crawl rough_trade_events
 pipenv run scrapy crawl rough_trade_event_detail
 ```
+
+## GraphQL
+
+This site has a GraphQL API at https://rough-trade-calendars.craiga.id.au/graphql. [Have a play around with it!](https://rough-trade-calendars.craiga.id.au/graphql#query=%7B%0A%20%20allLocations%20%7B%0A%20%20%20%20totalCount%0A%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20events(first%3A%205%2C%20startAfter%3A%20%222019-12-31T23%3A59%3A59%2B00%3A00%22%2C%20orderBy%3A%20%22startAt%22)%20%7B%0A%20%20%20%20%20%20%20%20%20%20totalCount%0A%20%20%20%20%20%20%20%20%20%20pageInfo%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20hasNextPage%0A%20%20%20%20%20%20%20%20%20%20%20%20hasPreviousPage%0A%20%20%20%20%20%20%20%20%20%20%20%20startCursor%0A%20%20%20%20%20%20%20%20%20%20%20%20endCursor%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20edges%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20node%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20name%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20description%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20startAt%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A%0A)
