@@ -16,7 +16,7 @@ class CountConnection(graphene.Connection):
 
     total_count = graphene.Int()
 
-    def resolve_total_count(self):
+    def resolve_total_count(self, *args):  # pylint: disable=unused-argument
         return self.length  # pylint: disable=no-member
 
     class Meta:
