@@ -390,10 +390,10 @@
         },
         "pyhamcrest": {
             "hashes": [
-                "sha256:55abfc14ec38ed2bd6093add3be72385c1b7fd8e6aeb27448c00f95cb501c60e",
-                "sha256:9f12b9b3b109d4877b2a1a42a9fb8acbf350213d3b1873eecf6eb07d6ac3caef"
+                "sha256:412e00137858f04bde0729913874a48485665f2d36fe9ee449f26be864af9316",
+                "sha256:7ead136e03655af85069b6f47b23eb7c3e5c221aa9f022a4fbb499f5b7308f29"
             ],
-            "version": "==2.0.1"
+            "version": "==2.0.2"
         },
         "pyopenssl": {
             "hashes": [
@@ -440,11 +440,11 @@
         },
         "scrapy": {
             "hashes": [
-                "sha256:4352c64c7ffc70148a7988db837bb25bccafb3350ab9c978c1f9a8930521959b",
-                "sha256:fe06576f9a4971de9dc0175c60fd92561e8275f2bad585c1cb5d65c5181b2db0"
+                "sha256:765f5b328b83b7f922edf734575e31f3c6d142c1d9eb9cd513d9114c5e2b9fb7",
+                "sha256:bf1bad45e2b664b50c6b04a414ca96c739279ba5a14d685ba90904af8427d9f1"
             ],
             "index": "pypi",
-            "version": "==1.8.0"
+            "version": "==2.0.0"
         },
         "scrapy-djangoitem": {
             "hashes": [
@@ -519,7 +519,6 @@
                 "sha256:f28355e61ce0b5c1ce47784522022322cc5059c8ed80638e0caae8c7301e1705",
                 "sha256:f7cc56a45c983e4e48601fbeec879b62c740cb848c75164f69a48ac0c6e8a21c"
             ],
-            "markers": "python_version >= '3.5'",
             "version": "==19.10.0"
         },
         "urllib3": {
