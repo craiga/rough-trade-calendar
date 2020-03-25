@@ -21,8 +21,8 @@
         <h2><a href="{% url 'location_events' location=location.slug %}" class="link">{{ location.name }}</a></h2>
         <p>
             <a href="{% url 'location_events' location=location.slug %}" class="link br3 ph3 pv2 dib white bg-blue bg-animate hover-bg-black">View Events</a>
-            <a href="{% webcal_url location %}" class="link br3 ph3 pv2 dib white bg-green bg-animate hover-bg-black"><span class="dn di-ns">Subscribe to </span>Calendar</a>
-            <a href="{% url 'location_events_feed' location=location.slug %}" class="link br3 ph3 pv2 dib white bg-orange bg-animate hover-bg-black"><span class="dn di-ns">Subscribe to </span>Feed</a>
+            <a href="{% webcal_url location %}" class="link br3 ph3 pv2 dib white bg-green bg-animate hover-bg-black" onclick="fathom('trackGoal', 'GC0QWAHF', 0);"><span class="dn di-ns">Subscribe to </span>Calendar</a>
+            <a href="{% url 'location_events_feed' location=location.slug %}" class="link br3 ph3 pv2 dib white bg-orange bg-animate hover-bg-black" onclick="fathom('trackGoal', '7X1PAZQM', 0);"><span class="dn di-ns">Subscribe to </span>Feed</a>
         </p>
     {% endfor %}
 </div>
