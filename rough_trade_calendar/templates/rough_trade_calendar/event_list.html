@@ -9,8 +9,8 @@
 <div class="fixed w-100 pa2 bg-white o-90 bb">
     <h1 class="mv2 nowrap">{{ location.name }}</h1>
     <p class="mv2">
-        <a href="{% webcal_url location %}" class="link br3 ph3 pv2 dib white bg-green bg-animate hover-bg-black o-100"><span class="dn di-ns">Subscribe to </span>Calendar</a>
-        <a href="{% url 'location_events_feed' location=location.slug %}" class="link br3 ph3 pv2 dib white bg-orange bg-animate hover-bg-black o-100"><span class="dn di-ns">Subscribe to </span>Feed</a>
+        <a href="{% webcal_url location %}" class="link br3 ph3 pv2 dib white bg-green bg-animate hover-bg-black o-100" onclick="fathom('trackGoal', 'MA4AD6AT', 0);"><span class="dn di-ns">Subscribe to </span>Calendar</a>
+        <a href="{% url 'location_events_feed' location=location.slug %}" class="link br3 ph3 pv2 dib white bg-orange bg-animate hover-bg-black o-100" onclick="fathom('trackGoal', 'KXSDESWF', 0);"><span class="dn di-ns">Subscribe to </span>Feed</a>
         <a href="{% url 'locations' %}" class="link br3 ph3 pv2">
             <span class="dn di-ns">Other Locations</span>
             <span class="di dn-ns">Back</span>
@@ -29,14 +29,14 @@
 <div class="flex flex-wrap pl2">
     {% for event in events %}
         <div class="w5 pr2 pb2">
-            <a class="link black" href="{{ event.url }}">
+            <a class="link black" href="{{ event.url }}" onclick="fathom('trackGoal', 'OJXYOKIA', 0);">
                 <img src="{{ event.image_url }}">
                 <h2>{{ event.name }}</h2>
                 <p>{{ event.description }}</p>
                 <p>{{ event.start_at}}</p>
             </a>
             {% if event.youtube_id %}
-                <p><a href="https://www.youtube.com/watch/?v={{ event.youtube_id }}" class="link br3 ph3 pv2 dib white bg-red bg-animate hover-bg-black o-100">YouTube</a></p>
+                <p><a href="https://www.youtube.com/watch/?v={{ event.youtube_id }}" class="link br3 ph3 pv2 dib white bg-red bg-animate hover-bg-black o-100" onclick="fathom('trackGoal', '5MRNLYIV', 0);">YouTube</a></p>
             {% endif %}
         </div>
     {% endfor %}
