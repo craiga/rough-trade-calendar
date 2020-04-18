@@ -1,47 +1,56 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %} {% load tz rough_trade_calendar %}
 
-{% block title %}Events at {{ location.name }}{% endblock %}
-
-{% block content %}
-
-{% load tz rough_trade_calendar %}
-
-<div class="fixed w-100 pa2 bg-white o-90 bb">
-    <h1 class="mv2 nowrap">{{ location.name }}</h1>
-    <p class="mv2">
-        <a href="{% webcal_url location %}" class="link br3 ph3 pv2 dib white bg-green bg-animate hover-bg-black o-100" onclick="fathom('trackGoal', 'MA4AD6AT', 0);"><span class="dn di-ns">Subscribe to </span>Calendar</a>
-        <a href="{% url 'location_events_feed' location=location.slug %}" class="link br3 ph3 pv2 dib white bg-orange bg-animate hover-bg-black o-100" onclick="fathom('trackGoal', 'KXSDESWF', 0);"><span class="dn di-ns">Subscribe to </span>Feed</a>
-        <a href="{% url 'locations' %}" class="link br3 ph3 pv2">
-            <span class="dn di-ns">Other Locations</span>
-            <span class="di dn-ns">Back</span>
-        </a>
-    </p>
+<div>
+  <h1>{{ location.name }}</h1>
+  <p>
+    <a
+      href="{% webcal_url location %}"
+      onclick="fathom('trackGoal', 'MA4AD6AT', 0);"
+      >Subscribe to Calendar</a
+    >
+    <a
+      href="{% url 'location_events_feed' location=location.slug %}"
+      onclick="fathom('trackGoal', 'KXSDESWF', 0);"
+      ><span>Subscribe to </span>Feed</a
+    >
+    <a href="{% url 'locations' %}">Other Locations</a>
+  </p>
 </div>
 
-<div class="ph2 pt6">
-    <h2 class="f6">Not affiliated with Rough Trade</h2>
-    <p class="f6">This was built by <a href="http://craiga.id.au">Craig Anderson</a>—a fan of Rough Trade's events in London—as a way to keep track of upcoming events.</p>
-    <p class="f6">Visit and buy stuff from your local independent record store!</p>
+<div>
+  <h2>Not affiliated with Rough Trade</h2>
+  <p>
+    This was built by <a href="http://craiga.id.au">Craig Anderson</a>—a fan of
+    Rough Trade's events in London—as a way to keep track of upcoming events.
+  </p>
+  <p>
+    Visit and buy stuff from your local independent record store!
+  </p>
 </div>
 
 {% timezone location.timezone %}
 
-<div class="flex flex-wrap pl2">
-    {% for event in events %}
-        <div class="w5 pr2 pb2">
-            <a class="link black" href="{{ event.url }}" onclick="fathom('trackGoal', 'OJXYOKIA', 0);">
-                <img src="{{ event.image_url }}">
-                <h2>{{ event.name }}</h2>
-                <p>{{ event.description }}</p>
-                <p>{{ event.start_at}}</p>
-            </a>
-            {% if event.youtube_id %}
-                <p><a href="https://www.youtube.com/watch/?v={{ event.youtube_id }}" class="link br3 ph3 pv2 dib white bg-red bg-animate hover-bg-black o-100" onclick="fathom('trackGoal', '5MRNLYIV', 0);">YouTube</a></p>
-            {% endif %}
-        </div>
-    {% endfor %}
+<div>
+  {% for event in events %}
+  <div>
+    <a href="{{ event.url }}" onclick="fathom('trackGoal', 'OJXYOKIA', 0);">
+      <img src="{{ event.image_url }}" />
+      <h2>{{ event.name }}</h2>
+      <p>{{ event.description }}</p>
+      <p>{{ event.start_at}}</p>
+    </a>
+    {% if event.youtube_id %}
+    <p>
+      <a
+        href="https://www.youtube.com/watch/?v={{ event.youtube_id }}"
+        onclick="fathom('trackGoal', '5MRNLYIV', 0);"
+        >YouTube</a
+      >
+    </p>
+    {% endif %}
+  </div>
+  {% endfor %}
 </div>
 
-{% endtimezone %}
-
-{% endblock %}
+{% endtimezone %} {% endblock %} {% block title %}Events at {{ location.name
+}}{% endblock %}

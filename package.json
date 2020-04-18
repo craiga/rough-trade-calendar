@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "prettier": "$(npm bin)/prettier",
+    "sass": "$(npm bin)/sass"
+  },
+  "dependencies": {
+    "prettier": "^2.0.4",
+    "sass": "^1.26.3"
+  }
+}

@@ -1,30 +1,42 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block title %}Rough Trade Calendars{% endblock %}
+{% block content %} {% load rough_trade_calendar %}
 
-{% block title %}Rough Trade Calendars{% endblock %}
-
-{% block content %}
-
-{% load rough_trade_calendar %}
-
-<div class="fixed w-100 pa2 bg-white o-90 bb">
-    <h1 class="mv2 nowrap">Rough Trade Calendars</h1>
+<div>
+  <h1>Rough Trade Calendars</h1>
 </div>
 
-<div class="ph2 pt5">
-    <h2 class="f6">Not affiliated with Rough Trade</h2>
-    <p class="f6">This was built by <a href="http://craiga.id.au">Craig Anderson</a>—a fan of Rough Trade's events in London—as a way to keep track of upcoming events.</p>
-    <p class="f6">Visit and buy stuff from your local independent record store!</p>
+<div>
+  <h2>Not affiliated with Rough Trade</h2>
+  <p>
+    This was built by <a href="http://craiga.id.au">Craig Anderson</a>—a fan of
+    Rough Trade's events in London—as a way to keep track of upcoming events.
+  </p>
+  <p>
+    Visit and buy stuff from your local independent record store!
+  </p>
 </div>
 
-<div class="ph2">
-    {% for location in locations %}
-        <h2><a href="{% url 'location_events' location=location.slug %}" class="link">{{ location.name }}</a></h2>
-        <p>
-            <a href="{% url 'location_events' location=location.slug %}" class="link br3 ph3 pv2 dib white bg-blue bg-animate hover-bg-black">View Events</a>
-            <a href="{% webcal_url location %}" class="link br3 ph3 pv2 dib white bg-green bg-animate hover-bg-black" onclick="fathom('trackGoal', 'GC0QWAHF', 0);"><span class="dn di-ns">Subscribe to </span>Calendar</a>
-            <a href="{% url 'location_events_feed' location=location.slug %}" class="link br3 ph3 pv2 dib white bg-orange bg-animate hover-bg-black" onclick="fathom('trackGoal', '7X1PAZQM', 0);"><span class="dn di-ns">Subscribe to </span>Feed</a>
-        </p>
-    {% endfor %}
+<div>
+  {% for location in locations %}
+  <h2>
+    <a href="{% url 'location_events' location=location.slug %}"
+      >{{ location.name }}</a
+    >
+  </h2>
+  <p>
+    <a href="{% url 'location_events' location=location.slug %}">View Events</a>
+    <a
+      href="{% webcal_url location %}"
+      onclick="fathom('trackGoal', 'GC0QWAHF', 0);"
+      >Subscribe to Calendar</a
+    >
+    <a
+      href="{% url 'location_events_feed' location=location.slug %}"
+      onclick="fathom('trackGoal', '7X1PAZQM', 0);"
+      >Subscribe to Feed</a
+    >
+  </p>
+  {% endfor %}
 </div>
 
 {% endblock %}

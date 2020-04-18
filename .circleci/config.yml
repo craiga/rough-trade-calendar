@@ -28,26 +28,21 @@ jobs:
           command: |
             sudo apt-get -y install libenchant1c2a
             sudo pip install pipenv
-            pipenv install --dev
+            make setup
 
       - run:
           name: run tests
-          command: pipenv run pytest
+          command: make test
 
       - run:
           name: deployment check
           command: pipenv run python manage.py check --deploy --fail-level INFO
 
       - run:
-          name: check for missing migrations
-          command: pipenv run python manage.py makemigrations --check
-
-      - run:
           name: check code formatting
           command: |
-            pipenv run isort --check-only
-            pipenv run black --check --diff .
-            find . -iname "*.py" | xargs pipenv run pylint
+            make lint-python
+            make lint-html
 
       - store_test_results:
           path: test-results
