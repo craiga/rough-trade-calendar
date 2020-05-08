@@ -1,42 +1,24 @@
-{% extends 'base.html' %} {% block title %}Rough Trade Calendars{% endblock %}
-{% block content %} {% load rough_trade_calendar %}
+{% extends 'base.html' %}
 
-<div>
+{% block title %}Rough Trade Calendars{% endblock %}
+
+{% block content %}
+
+{% load rough_trade_calendar %}
+
+<header>
+  <nav><a href="http://craiga.id.au">&lt; craiga.id.au</a></nav>
   <h1>Rough Trade Calendars</h1>
-</div>
+</header>
 
-<div>
-  <h2>Not affiliated with Rough Trade</h2>
-  <p>
-    This was built by <a href="http://craiga.id.au">Craig Anderson</a>—a fan of
-    Rough Trade's events in London—as a way to keep track of upcoming events.
-  </p>
-  <p>
-    Visit and buy stuff from your local independent record store!
-  </p>
-</div>
-
-<div>
+<ul class="location-list">
   {% for location in locations %}
-  <h2>
+  <li>
     <a href="{% url 'location_events' location=location.slug %}"
       >{{ location.name }}</a
     >
-  </h2>
-  <p>
-    <a href="{% url 'location_events' location=location.slug %}">View Events</a>
-    <a
-      href="{% webcal_url location %}"
-      onclick="fathom('trackGoal', 'GC0QWAHF', 0);"
-      >Subscribe to Calendar</a
-    >
-    <a
-      href="{% url 'location_events_feed' location=location.slug %}"
-      onclick="fathom('trackGoal', '7X1PAZQM', 0);"
-      >Subscribe to Feed</a
-    >
-  </p>
+  </li>
   {% endfor %}
-</div>
+</ul>
 
 {% endblock %}

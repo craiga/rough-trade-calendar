@@ -1,10 +1,15 @@
 {
   "scripts": {
     "prettier": "$(npm bin)/prettier",
-    "sass": "$(npm bin)/sass"
+    "sass": "$(npm bin)/sass",
+    "postinstall": "$(npm bin)/sass scss/:rough_trade_calendar/static/css/"
   },
   "dependencies": {
     "prettier": "^2.0.4",
     "sass": "^1.26.3"
+  },
+  "name": "rough-trade-calendar",
+  "engines": {
+    "node": "12.13.x"
   }
 }

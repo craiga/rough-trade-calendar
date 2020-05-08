@@ -14,14 +14,21 @@ scrape:  ## Run the scraper.
 	pipenv run scrapy crawl rough_trade_events
 	pipenv run scrapy crawl rough_trade_event_detail
 
+scss:  ## Build SCSS.
+	npm run sass -- scss/:rough_trade_calendar/static/css/
+
+scss-continuous:  ## Build SCSS continuously.
+	npm run sass -- scss/:rough_trade_calendar/static/css/ --watch
+
 test: ## Run tests.
+	pipenv run python manage.py collectstatic --no-input
 	pipenv run pytest
 
-lint-html: ## Lint HTML.
-	npm run prettier -- **/*.html --check
+lint-scss: ## Lint SCSS.
+	npm run prettier -- **/*.scss --check
 
-fix-html: ## Attempt to fix HTML issues reported by the linter.
-	npm run prettier -- **/*.html --write
+fix-scss: ## Attempt to fix SCSS issues reported by the linter.
+	npm run prettier -- **/*.scss --write
 
 lint-python: ## Lint Python.
 	pipenv run isort --check-only
