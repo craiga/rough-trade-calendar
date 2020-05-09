@@ -1,3 +1,7 @@
 /db.sqlite3
 /.env
 /pylintrc.txt
+/node_modules
+/rough_trade_calendar/static/css/main.css
+/rough_trade_calendar/static/css/main.css.map
+/staticfiles

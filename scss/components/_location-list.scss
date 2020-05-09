@@ -1,0 +1,23 @@
+@use "../colours" as *;
+
+.location-list {
+  list-style: none;
+  a {
+    color: $black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 5rem;
+    letter-spacing: -0.04em;
+  }
+  @media (max-width: 80rem) {
+    a {
+      font-size: 3rem;
+    }
+  }
+  @media (max-width: 40rem) {
+    a {
+      font-size: 2rem;
+    }
+  }
+  
+}

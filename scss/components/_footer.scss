@@ -1,0 +1,26 @@
+@use "../colours" as *;
+@use "../utils";
+
+footer {
+  background: $black;
+  color: $white;
+  box-shadow: 1px 1px 5px $black;
+  margin-top: 3rem;
+  padding: 2rem 1rem;
+  font-size: 1rem;
+
+  a {
+    color: $white;
+  }
+  @media (max-width: utils.remToPx(80rem)) {
+    h1 {
+      font-size: 3rem;
+    }
+  }
+  @media (max-width: utils.remToPx(40rem)) {
+    h1 {
+      font-size: 2rem;
+    }
+  }
+}
+

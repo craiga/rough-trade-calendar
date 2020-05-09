@@ -177,7 +177,7 @@ INTERNAL_IPS = IPv4List(os.environ.get("INTERNAL_IP_CIDR", "127.0.0.1/32"))
 # Content Security Policy
 # https://django-csp.readthedocs.io/en/stable/configuration.html
 
-CSP_STYLE_SRC = ["'self'", "unpkg.com"]
+CSP_STYLE_SRC = ["'self'", "'unsafe-inline'"]
 CSP_IMG_SRC = ["'self'", "images.roughtrade.com", "https://*.usefathom.com"]
 CSP_SCRIPT_SRC = ["'unsafe-inline'", "https://cdn.usefathom.com"]
 CSP_CONNECT_SRC = ["https://*.usefathom.com"]

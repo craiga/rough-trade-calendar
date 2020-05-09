@@ -6,7 +6,9 @@
 <p>{{ obj.description }}</p>
 <p>{{ obj.location.name }}</p>
 <p>{{ obj.start_at }}</p>
-<p><a href="{{ obj.url }}"><img src="{{ obj.image_url }}"></a></p>
+<p>
+  <a href="{{ obj.url }}"><img src="{{ obj.image_url }}" /></a>
+</p>
 {{ obj.detail_html|safe }}
 
 {% endtimezone %}
