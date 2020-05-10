@@ -203,10 +203,11 @@
         },
         "django-recurrence": {
             "hashes": [
-                "sha256:2af54b57b35c2011de28d04c5065ceb767ece024484b4cf9c571c35bafa4253a",
-                "sha256:b441a081032af047f932ce60aac53bba50d62cf936a49412e4658d3e28fe60f7"
+                "sha256:715f681f6af029ff3a8d73c7b1460abd8cbc5d5a5001efcb127032e84d9cb963",
+                "sha256:9053b44b78b7fbfe3530673edfdd6d2f562105f8a192bc6a4b906a3df4f95f59"
             ],
-            "version": "==1.10.2"
+            "index": "pypi",
+            "version": "==1.10.3"
         },
         "django-timezone-field": {
             "hashes": [
