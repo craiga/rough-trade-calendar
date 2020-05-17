@@ -40,5 +40,10 @@ fix-python: ## Attempt to automatically Python issues reported by linter.
 	pipenv run isort --apply
 	pipenv run black .
 
+load-events-from-heroku:  ## Load events from Heroku. Deletes all existing local events.
+	pipenv run python manage.py shell --command "from rough_trade_calendar import models; models.Event.objects.all().delete()"
+	heroku run --app rough-trade-calendar python manage.py dumpdata rough_trade_calendar.event > rough_trade_calendar/fixtures/heroku-events.json
+	pipenv run python manage.py loaddata heroku-events
+
 help: ## Display this help screen.
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
