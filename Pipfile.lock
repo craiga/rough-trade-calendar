@@ -225,11 +225,11 @@
         },
         "graphene-django": {
             "hashes": [
-                "sha256:6354016ceab1ca25b45bb3689ca8d53c8b004904e10aed0a5cc4db29c92cb690",
-                "sha256:b93b80eb34b72410cd16829f9776483640110d323a2a3169590a6d20d8b258b9"
+                "sha256:4ebf61a8b13ff6d7433c95b2efdaf723b1ee6bf8e74a34d89a378f1151c104ff",
+                "sha256:84d0b83349741336dc45d7af65886fbe6d3f6cbc34588e039f73f5ada8b48940"
             ],
             "index": "pypi",
-            "version": "==2.11.0"
+            "version": "==2.11.1"
         },
         "graphql-core": {
             "hashes": [
@@ -326,7 +326,6 @@
                 "sha256:ecc930ae559ea8a43377e8b60ca6f8d61ac532fc57efb915d899de4a67928efd",
                 "sha256:f161af26f596131b63b236372e4ce40f3167c1b5b5d459b29d2514bd8c9dc9ee"
             ],
-            "index": "pypi",
             "version": "==4.5.2"
         },
         "parsel": {
