@@ -5,8 +5,8 @@
     "postinstall": "$(npm bin)/sass scss/:rough_trade_calendar/static/css/"
   },
   "dependencies": {
-    "prettier": "^2.0.4",
-    "sass": "^1.26.3"
+    "prettier": "^2.0.5",
+    "sass": "^1.26.10"
   },
   "name": "rough-trade-calendar",
   "engines": {
