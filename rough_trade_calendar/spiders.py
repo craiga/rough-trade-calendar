@@ -65,7 +65,7 @@ class EventDetailSpider(scrapy.Spider):
         for event in models.Event.objects.all():
             yield scrapy.Request(url=event.url, callback=self.parse)
 
-    def parse(self, response):
+    def parse(self, response, **kwargs):
         event = models.Event.objects.get(url=response.url)
 
         if response.status >= 300:

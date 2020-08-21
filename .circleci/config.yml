@@ -40,6 +40,10 @@ jobs:
           command: pipenv run python manage.py check --deploy --fail-level INFO
 
       - run:
+          name: check migrations
+          command: pipenv run python manage.py makemigrations --check
+
+      - run:
           name: check code formatting
           command: |
             make lint-python

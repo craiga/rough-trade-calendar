@@ -31,13 +31,13 @@ fix-scss: ## Attempt to fix SCSS issues reported by the linter.
 	npm run prettier -- **/*.scss --write
 
 lint-python: ## Lint Python.
-	pipenv run isort --check-only
+	pipenv run isort . --check --diff
 	pipenv run black --check --diff .
 	find . -iname "*.py" | xargs pipenv run pylint
 	pipenv run python manage.py makemigrations --check
 
 fix-python: ## Attempt to automatically Python issues reported by linter.
-	pipenv run isort --apply
+	pipenv run isort .
 	pipenv run black .
 
 load-events-from-heroku:  ## Load events from Heroku. Deletes all existing local events.
