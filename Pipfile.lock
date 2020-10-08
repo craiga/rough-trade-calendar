@@ -526,10 +526,10 @@
         },
         "sqlparse": {
             "hashes": [
-                "sha256:0523026398aea9c8b5f7a4a6d5c0829c285b4fbd960c17b5967a369342e21e01",
-                "sha256:d59e473424ae7470778fa4dd0dd7bb666ff324f0a6106c29deb5946ea5367f04"
+                "sha256:017cde379adbd6a1f15a61873f43e8274179378e95ef3fede90b5aa64d304ed0",
+                "sha256:0f91fd2e829c44362cbcfab3e9ae12e22badaa8a29ad5ff599f9ec109f0454e8"
             ],
-            "version": "==0.4.0"
+            "version": "==0.4.1"
         },
         "twisted": {
             "hashes": [
@@ -746,11 +746,11 @@
         },
         "isort": {
             "hashes": [
-                "sha256:171c5f365791073426b5ed3a156c2081a47f88c329161fd28228ff2da4c97ddb",
-                "sha256:ba91218eee31f1e300ecc079ef0c524cea3fc41bfbb979cbdf5fd3a889e3cfed"
+                "sha256:20544581447ccb6a80940c5cace8cbc32c0f58d82d67d34a182950fe7b93321b",
+                "sha256:ef200cc0ebd896c5bb0d7da9fd390392648c56c2099c2d2ff940ac94739f62aa"
             ],
             "index": "pypi",
-            "version": "==5.5.2"
+            "version": "==5.6.0"
         },
         "jedi": {
             "hashes": [
@@ -950,10 +950,10 @@
         },
         "sqlparse": {
             "hashes": [
-                "sha256:0523026398aea9c8b5f7a4a6d5c0829c285b4fbd960c17b5967a369342e21e01",
-                "sha256:d59e473424ae7470778fa4dd0dd7bb666ff324f0a6106c29deb5946ea5367f04"
+                "sha256:017cde379adbd6a1f15a61873f43e8274179378e95ef3fede90b5aa64d304ed0",
+                "sha256:0f91fd2e829c44362cbcfab3e9ae12e22badaa8a29ad5ff599f9ec109f0454e8"
             ],
-            "version": "==0.4.0"
+            "version": "==0.4.1"
         },
         "text-unidecode": {
             "hashes": [
