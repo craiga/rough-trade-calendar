@@ -5,8 +5,8 @@ import os
 import re
 
 import dj_database_url
-import django_feature_policy
 import django_heroku
+import django_permissions_policy
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
@@ -44,7 +44,7 @@ MIDDLEWARE = [
     "enforce_host.EnforceHostMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "csp.middleware.CSPMiddleware",
-    "django_feature_policy.FeaturePolicyMiddleware",
+    "django_permissions_policy.PermissionsPolicyMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -189,10 +189,10 @@ if DEBUG:
 
 
 # Feature policy
-# https://github.com/adamchainz/django-feature-policy#setting
+# https://github.com/adamchainz/django-permissions-policy#setting
 
-FEATURE_POLICY = {
-    feature_name: "none" for feature_name in django_feature_policy.FEATURE_NAMES
+PERMISSIONS_POLICY = {
+    feature_name: "none" for feature_name in django_permissions_policy.FEATURE_NAMES
 }
 
 
@@ -206,6 +206,11 @@ ENFORCE_HOST = os.environ.get("CANONICAL_HOST")
 # https://github.com/graphql-python/graphene-django#settings
 
 GRAPHENE = {"SCHEMA": "rough_trade_calendar.graphql.schema"}
+
+
+# Default ID field.
+
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 
 # Configure Django App for Heroku.

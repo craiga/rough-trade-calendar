@@ -2,6 +2,7 @@
 load-plugins = pylint.extensions.mccabe, pylint_django, pylint.extensions.bad_builtin
 ignore-patterns = manage.py, \d{4}.*.py
 good-names = application, urlpatterns, i, j, k, rf, schema
+django-settings-module = "rough_trade_calendar.settings"
 
 [REPORTS]
 output-format = colorized
