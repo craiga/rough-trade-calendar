@@ -32,11 +32,11 @@ sentry-sdk = "*"
 scrapy-sentry = "*"
 django-debug-toolbar = "*"
 django-csp = "*"
-django-feature-policy = "*"
 html2text = "*"
 django-enforce-host = "*"
 graphene-django = "*"
 django-filter = "*"
+django-permissions-policy = "*"
 
 [requires]
 python_version = "3.8"
